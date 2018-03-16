@@ -19,13 +19,13 @@ export class HomePage {
 
     showMap(){
       //Location - lat long
-      const location = new google.maps.LatLng(51.507531, -0.127758);
+      const location = new google.maps.LatLng(51.545483, 9.905548);
 
 
     //Map options
     const options ={
       center: location,
-      zoom: 10
+      zoom: 12
     }
 
     this.map = new google.maps.Map(this.mapRef.nativeElement, options);
