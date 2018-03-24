@@ -10,6 +10,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { ProgressBarComponent } from '../components/progress-bar/progress-bar'; //Importiert Progress-Bar, zudem auch unter declarations einfügen
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    ProgressBarComponent
   ],
   imports: [
     BrowserModule,

@@ -2,7 +2,6 @@ import { Component, ViewChild, ElementRef } from '@angular/core'; //ViewChild un
 import { NavController } from 'ionic-angular';
 
 declare var google: any; //Keine Errors mit google als variable
-
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -15,6 +14,7 @@ export class HomePage {
 
     ionViewDidLoad(){
       this.showMap();
+      this.loadProgress ='50'; //Input für den Akkustand
     }
 
     showMap(){

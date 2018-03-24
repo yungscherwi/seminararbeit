@@ -1,11 +1,50 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      About
+      ToDo
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <h1>Heutige Aktivitäten</h1>
+  <ion-list>
+
+    <ion-item>
+      <ion-label>Supermarkt</ion-label>
+      <ion-checkbox [(ngModel)]="supermarkt"></ion-checkbox>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Fitnessstudio</ion-label>
+      <ion-checkbox [(ngModel)]="fitnessstudio"></ion-checkbox>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Joggen</ion-label>
+      <ion-checkbox [(ngModel)]="joggen"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+    <ion-icon name="add" item-start></ion-icon>
+    <ion-label>Aktivitäten hinzufügen</ion-label>
+  </ion-item>
+  </ion-list>
+
+  <br>
+  <h1>Wöchentliche Aktivitäten</h1>
+  <br>
+  <h3>Montag</h3>
+  <br>
+  <h3>Dienstag</h3>
+  <br>
+  <h3>Mittwoch</h3>
+  <br>
+  <h3>Donnerstag</h3>
+  <br>
+  <h3>Freitag</h3>
+  <br>
+  <h3>Samstag</h3>
+  <br>
+  <h3>Sonntag</h3>
 
 </ion-content>

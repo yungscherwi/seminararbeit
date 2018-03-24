@@ -3,7 +3,23 @@
     <ion-title>myCharge</ion-title>
   </ion-navbar>
 </ion-header>
-
 <ion-content padding>
+  <ion-list>
+  <button ion-item>
+    <ion-icon name="battery-charging" item-start></ion-icon>
+    Akku <progress-bar [progress]="loadProgress"></progress-bar> <!-- Fortschritt der Leiste an Variable loadProgress in .ts binden; jetzt vorerst statisch -->
+  </button>
+
+  <button ion-item>
+    <ion-icon name="map" item-start></ion-icon>
+    Reichweite 500 km
+  </button>
+
+  <button ion-item>
+    <ion-icon name="car" item-start></ion-icon>
+    KM-Stand 5000 km
+  </button>
+
+</ion-list>
  <div #map id="map"></div> <!-- #map erlaubt Zugang zur node im ts script -->
 </ion-content>
