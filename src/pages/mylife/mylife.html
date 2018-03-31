@@ -1,7 +1,7 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>
-      ToDo
+      myLife
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -9,6 +9,18 @@
 <ion-content padding>
   <h1>Heutige Aktivitäten</h1>
   <ion-list>
+    <ion-item *ngFor="let item of items" (click)="viewItem(item)">
+      {{item.title}}
+    </ion-item>
+  </ion-list>
+
+  <ion-buttons>
+      <button ion-button icon-only (click)="addItem()"><ion-icon name="add-circle"></ion-icon></button>
+  </ion-buttons>
+
+
+
+  <!--ion-list>
 
     <ion-item>
       <ion-label>Supermarkt</ion-label>
@@ -25,26 +37,13 @@
       <ion-checkbox [(ngModel)]="joggen"></ion-checkbox>
     </ion-item>
     <ion-item>
-    <ion-icon name="add" item-start></ion-icon>
-    <ion-label>Aktivitäten hinzufügen</ion-label>
+    <button ion-button (click)="dailyActivity()">Aktivität hinzufügen</button>
   </ion-item>
-  </ion-list>
+</ion-list-->
 
-  <br>
-  <h1>Wöchentliche Aktivitäten</h1>
-  <br>
-  <h3>Montag</h3>
-  <br>
-  <h3>Dienstag</h3>
-  <br>
-  <h3>Mittwoch</h3>
-  <br>
-  <h3>Donnerstag</h3>
-  <br>
-  <h3>Freitag</h3>
-  <br>
-  <h3>Samstag</h3>
-  <br>
-  <h3>Sonntag</h3>
+  <!--h3>Sonntag</h3>
+  <button ion-button (click)="doPrompt()" icon-only>
+    <ion-icon name="add"></ion-icon>
+  </button-->
 
 </ion-content>
