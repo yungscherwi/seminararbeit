@@ -17,9 +17,14 @@ export class EinstellungenPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad EinstellungenPage');
   }
 
 }
+
+//Funktion zum Ausloggen - noch fehlerhaft. Später einbauen
+//logout(){
+ //const root = this.app.getRootNav();
+// root.popToRoot();
+// In Construcotot public app: MyApp,
