@@ -10,6 +10,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { MylifePage } from '../pages/mylife/mylife'; //Import für Mylife tab
 import { EinstellungenPage } from '../pages/einstellungen/einstellungen';
 import { AddItemPage } from '../pages/add-item/add-item';
+import { AddWeeklyItemPage } from '../pages/add-weekly-item/add-weekly-item';
 import { ItemDetailPage } from '../pages/item-detail/item-detail';
 
 
@@ -27,6 +28,7 @@ import { Data } from '../providers/data/data';
     EinstellungenPage,
     ProgressBarComponent,
     AddItemPage,
+    AddWeeklyItemPage,
     ItemDetailPage
   ],
   imports: [
@@ -42,6 +44,7 @@ import { Data } from '../providers/data/data';
     EinstellungenPage,
     TabsPage,
     AddItemPage,
+    AddWeeklyItemPage,
     ItemDetailPage
   ],
   providers: [
