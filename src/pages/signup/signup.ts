@@ -18,7 +18,7 @@ import { LoginPage } from '../login/login';
 })
 export class SignupPage {
   responseData : any;
-  userData = {"username": "","password": "", "name": "","email": ""}; //Leeres Objetk zum Benutzer anlegen
+  userData = {"username": "","password": "","name": "","email": ""}; //Leeres Objetk zum Benutzer anlegen
   constructor(public navCtrl: NavController, public authServiceProvider: AuthServiceProvider) { //AuthServer in Konstruktor aufrufen
   }
 
@@ -27,7 +27,7 @@ export class SignupPage {
   }
    //Api connections
    signup(){
-        this.authService.postData(this.userData,'signup').then((result) => {  //Zugriff auf DB
+        this.authServiceProvider.postData(this.userData,'signup').then((result) => {  //Zugriff auf DB
          this.responseData = result;
          if(this.responseData.userData){
          console.log(this.responseData);

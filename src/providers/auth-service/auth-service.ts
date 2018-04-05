@@ -1,4 +1,4 @@
-import { HttpClient, Headers } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http'; //hier stand noch headers entfernt, da nicht beutzt
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 

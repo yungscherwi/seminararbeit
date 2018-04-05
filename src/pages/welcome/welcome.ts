@@ -24,7 +24,7 @@ export class WelcomePage {
     console.log('ionViewDidLoad WelcomePage');
   }
   login(){
-    this.navCtrl.push(LoginPage, {}, {animate:false}); //Aufruf der Loginpage, ohne Animation
+    this.navCtrl.push(LoginPage); //Aufruf der Loginpage, ohne Animation
   }
   signup(){
     this.navCtrl.push(SignupPage, {}, {animate:false}); //Aufruf der Signup Page, ohne Animation

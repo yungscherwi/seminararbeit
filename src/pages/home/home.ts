@@ -1,6 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core'; //ViewChild und ElementRef ergänzt
 import { NavController } from 'ionic-angular';
 
+
 declare var google: any; //Keine Errors mit google als variable
 @Component({
   selector: 'page-home',
