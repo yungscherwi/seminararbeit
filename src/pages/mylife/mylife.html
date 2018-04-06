@@ -7,7 +7,17 @@
 </ion-header>
 <!--Heutige Aktivitäten-->
 <ion-content padding>
-  <h1>Heutige Aktivitäten</h1>
+  <ion-navbar color="light">
+    <ion-buttons end>
+        <button ion-button icon-only (click)="addItem()">
+          <ion-icon name="add" ></ion-icon>
+        </button>
+    </ion-buttons>
+    <ion-title>
+      Heutige Aktivitäten
+    </ion-title>
+  </ion-navbar>
+
   <ion-list>
     <!--Durchläuft items im local storage und gibt jedes item aus-->
     <ion-item *ngFor="let item of items" (click)="viewItem(item)">
@@ -17,14 +27,23 @@
       </ion-label>
     </ion-item>
   </ion-list>
-
+<!--
   <ion-buttons>
       <button ion-button icon-only (click)="addItem()"><ion-icon name="add-circle"></ion-icon></button>
-  </ion-buttons>
+  </ion-buttons> -->
 <br><br>
 
 <!--Wöchentliche Aktivitäten-->
-    <h1>Wöchentliche Aktivitäten</h1>
+ <ion-navbar color="light">
+  <ion-buttons end>
+      <button ion-button icon-only (click)="addWeeklyItem()">
+        <ion-icon name="add" ></ion-icon>
+      </button>
+  </ion-buttons>
+  <ion-title>
+    Wöchentliche Aktivitäten
+  </ion-title>
+</ion-navbar>
     <ion-list>
       <!--Durchläuft weeklyItems im local storage und gibt jedes weeklyItem aus-->
       <ion-item *ngFor="let weeklyItem of weeklyItems" (click)="viewWeeklyItem(weeklyItem)">
@@ -34,10 +53,5 @@
         </ion-label>
       </ion-item>
     </ion-list>
-
-    <ion-buttons>
-        <button ion-button icon-only (click)="addWeeklyItem()"><ion-icon name="add-circle"></ion-icon></button>
-    </ion-buttons>
-
 
 </ion-content>

@@ -81,7 +81,7 @@ export class HomePage {
 
     var map = new google.maps.Map(document.getElementById('map'), {
       center: current_location,
-      zoom: 12
+      zoom: 14
     });
 
     //Marker hinzufügen
@@ -90,20 +90,18 @@ export class HomePage {
           position: current_location,
         })
     //Marker für Ladesäulen
-      this.image = 'assets/imgs/evcharge2.png'
+      this.image = 'assets/imgs/ev_charging.png'
       let marker2: google.maps.Marker = new google.maps.Marker({
           map: map,
           position: chargestation1,
           icon: this.image
     })
-      this.image = 'assets/imgs/ev_charging.png';
       let marker3: google.maps.Marker = new google.maps.Marker({
         position: chargestation2,
         map: map,
         icon: this.image
       });
-      this.image = 'assets/imgs/evcharge2.png'
-    let marker4: google.maps.Marker = new google.maps.Marker({
+      let marker4: google.maps.Marker = new google.maps.Marker({
       map: map,
       position: chargestation3,
       icon: this.image
