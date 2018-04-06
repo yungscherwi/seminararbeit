@@ -1,6 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core'; //ViewChild und ElementRef ergänzt
 import { NavController } from 'ionic-angular';
 import { Data } from '../../providers/data/data';
+import { Geolocation } from '@ionic-native/geolocation'; //Import für GPS
 
 declare var google: any; //Keine Errors mit google als variable
 
@@ -14,8 +15,11 @@ export class HomePage {
   loadProgress: number;
   reichweite: number;
   kmStand: number;
+  image: any;
+
   constructor(public navCtrl: NavController,
-              public dataService: Data) {
+              public dataService: Data,
+              public geo : Geolocation) {
           //Damit beim Starten der Anwedungs geladen wird
                 //Für heutige Aktivitäten
                 this.dataService.getData().then((todos) => {
@@ -65,19 +69,74 @@ export class HomePage {
       this.kmStand = 5655; //Input für kmStand
     }
 
+
     showMap(){
-      //Location - lat long
-      const location = new google.maps.LatLng(51.545483, 9.905548);
+        this.geo.getCurrentPosition().then( pos => {   //Frag aktuelle Position ab
+        this.lat = pos.coords.latitude;
+        this.lng = pos.coords.longitude;
+        var current_location = new google.maps.LatLng(this.lat, this.lng);  //besetzt Variable current_location mit aktuellen LatLng
+        var chargestation1 = new google.maps.LatLng(51.5322716,9.9298304);
+        var chargestation2 = new google.maps.LatLng(51.528420,9.937496);
+        var chargestation3 = new google.maps.LatLng(51.533100,9.928791);
 
-
-    //Map options
-    const options ={
-      center: location,
+    var map = new google.maps.Map(document.getElementById('map'), {
+      center: current_location,
       zoom: 12
-    }
+    });
 
-    this.map = new google.maps.Map(this.mapRef.nativeElement, options);
-  }
+    //Marker hinzufügen
+        let marker1: google.maps.Marker = new google.maps.Marker({  //setzt Marker auf aktuelle Position
+          map: map,
+          position: current_location,
+        })
+    //Marker für Ladesäulen
+      this.image = 'assets/imgs/evcharge2.png'
+      let marker2: google.maps.Marker = new google.maps.Marker({
+          map: map,
+          position: chargestation1,
+          icon: this.image
+    })
+      this.image = 'assets/imgs/ev_charging.png';
+      let marker3: google.maps.Marker = new google.maps.Marker({
+        position: chargestation2,
+        map: map,
+        icon: this.image
+      });
+      this.image = 'assets/imgs/evcharge2.png'
+    let marker4: google.maps.Marker = new google.maps.Marker({
+      map: map,
+      position: chargestation3,
+      icon: this.image
+    })
+      //Informationen hinzufügen
+      var infoWindowOptions = {
+      content: 'Ladegeschwindigkeit:  ',
+      };
+      var infoWindow = new google.maps.InfoWindow(infoWindowOptions);
+      google.maps.event.addListener(marker2, 'click', function(e){
+
+        infoWindow.open(map, marker2);
+      })
+      //2. Info Fenster
+      var infoWindowOptions2 = {
+      content: 'Ladegeschwindigkeit: '
+      };
+      var infoWindow2 = new google.maps.InfoWindow(infoWindowOptions2);
+      google.maps.event.addListener(marker3, 'click', function(e){
+
+        infoWindow2.open(map, marker3);
+      })
+      //3. Infofenster
+      var infoWindowOptions = {
+      content: 'Ladegeschwindigkeit:  ',
+      };
+      var infoWindow = new google.maps.InfoWindow(infoWindowOptions);
+      google.maps.event.addListener(marker4, 'click', function(e){
+
+        infoWindow.open(map, marker4);
+      })
+        }).catch( err => console.log(err)); //Fehler in Konsolenausgabe auffangen
+      }
 
 
 }
