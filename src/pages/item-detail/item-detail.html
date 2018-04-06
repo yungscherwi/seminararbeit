@@ -6,10 +6,17 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
   <ion-card>
     <ion-card-content>
       {{description}}
     </ion-card-content>
   </ion-card>
+  <ion-card>
+    <ion-card-content>
+    Beginn: {{start}} <br><br>
+    Ende: {{end}}
+    </ion-card-content>
+  </ion-card>
+  <button ion-button color="danger" (click)="deleteItem()">Löschen</button>
 </ion-content>

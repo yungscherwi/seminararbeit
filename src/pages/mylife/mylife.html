@@ -23,7 +23,7 @@
 <!--Wöchentliche Aktivitäten-->
     <h1>Wöchentliche Aktivitäten</h1>
     <ion-list>
-      <!--Durchläuft items im local storage und gibt jedes item aus-->
+      <!--Durchläuft weeklyItems im local storage und gibt jedes weeklyItem aus-->
       <ion-item *ngFor="let weeklyItem of weeklyItems" (click)="viewWeeklyItem(weeklyItem)">
         {{weeklyItem.title}}
       </ion-item>
@@ -32,5 +32,6 @@
     <ion-buttons>
         <button ion-button icon-only (click)="addWeeklyItem()"><ion-icon name="add-circle"></ion-icon></button>
     </ion-buttons>
+
 
 </ion-content>

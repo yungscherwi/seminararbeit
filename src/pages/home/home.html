@@ -15,10 +15,15 @@
     Reichweite {{reichweite}} km
   </button>
 
-  <button ion-item>
-    <ion-icon name="car" item-start></ion-icon>
-    KM-Stand {{kmStand}} km
-  </button>
+  <ion-item>
+      <ion-label floating>Ziele</ion-label>
+  <ion-select [(ngModel)]="destinations" multiple="true" okText="Okay" cancelText="Dismiss">
+    <!-- Gibt alle heutigen ToDos aus -->
+    <ion-option *ngFor="let item of items" [value]="item">{{item.title}}</ion-option>
+    <!-- Gibt alle wöchentlichen ToDos aus -->
+    <ion-option *ngFor="let weeklyItem of weeklyItems" [value]="weeklyItem">{{weeklyItem.title}}</ion-option>
+  </ion-select>
+  </ion-item>
 
 </ion-list>
  <div #map id="map"></div> <!-- #map erlaubt Zugang zur node im ts script -->

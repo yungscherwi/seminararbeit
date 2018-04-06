@@ -10,15 +10,21 @@ export class AddItemPage {
 
   title: string;
   description: string;
+  start: string;
+  end: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public view: ViewController) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public view: ViewController) {
   }
 
   saveItem(){
 
     let newItem = {
       title: this.title,
-      description: this.description
+      description: this.description,
+      start: this.start,
+      end: this.end
     };
 
     this.view.dismiss(newItem);

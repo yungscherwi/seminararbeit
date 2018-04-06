@@ -21,31 +21,57 @@ export class MylifePage {
               public alertCtrl: AlertController,
               public navParams: NavParams,
               public modalCtrl: ModalController,
-              public dataService: Data) {
+              public dataService: Data) {}
 
-                this.dataService.getData().then((todos) => {
+//Damit nach Löschen auch aktualisiert wird
+  ionViewDidEnter() {
+    //Für heutige Aktivitäten
+    this.dataService.getData().then((todos) => {
 
-                  if(todos){
-                     this.items = JSON.parse(todos);
-                  }
+      if(todos){
+         this.items = JSON.parse(todos);
+      }
 
-                });
+    });
+
+    //Für wöchentliche Aktivität
+    this.dataService.getWeeklyData().then((weeklyTodos) => {
+
+      if(weeklyTodos){
+         this.weeklyItems = JSON.parse(weeklyTodos);
+      }
+
+    });
+
   }
 
+//**************** Wöchentliche Aktivitäten - Funktionen ********************
 
-  ionViewDidLoad() {
-
-  }
-
+// fügt wöchentliche Aktivität über Modal zu
   addWeeklyItem(){
 
-    let addModal = this.modalCtrl.create(AddWeeklyItemPage);
+        let addModal = this.modalCtrl.create(AddWeeklyItemPage);
 
-    addModal.present();
+        addModal.onDidDismiss((weeklyItem) => {
 
-    }
+              if(weeklyItem){
+                this.saveWeeklyItem(weeklyItem);
+              }
+
+        });
+
+        addModal.present();
+
+        }
+
+//Pusht weeklyItem in die Liste und speichert es lokal
+  saveWeeklyItem(weeklyItem){
+      this.weeklyItems.push(weeklyItem);
+      this.dataService.saveWeekly(this.weeklyItems);
+  }
 
 
+//**************** Heutige Aktivitäten - Funktionen ********************
 
   addItem(){
 
@@ -56,23 +82,21 @@ export class MylifePage {
           if(item){
             this.saveItem(item);
           }
-
     });
-
     addModal.present();
-
     }
 
-    saveItem(item){
+
+  saveItem(item){
       this.items.push(item);
       this.dataService.save(this.items);
     }
 
-    viewItem(item){
+  viewItem(item){
       this.navCtrl.push(ItemDetailPage, {
         item: item
       });
-    }
 
+    }
 
 }
