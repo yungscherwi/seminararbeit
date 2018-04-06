@@ -13,6 +13,7 @@ export class ItemDetailPage {
   description;
   start;
   end;
+  adress;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -25,6 +26,7 @@ export class ItemDetailPage {
     this.description = this.navParams.get('item').description;
     this.start = this.navParams.get('item').start;
     this.end = this.navParams.get('item').end;
+    this.adress = this.navParams.get('item').adress;
   }
 
   deleteItem(){

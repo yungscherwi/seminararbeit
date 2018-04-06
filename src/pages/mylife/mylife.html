@@ -11,7 +11,10 @@
   <ion-list>
     <!--Durchläuft items im local storage und gibt jedes item aus-->
     <ion-item *ngFor="let item of items" (click)="viewItem(item)">
+      <ion-icon name="play" item-start></ion-icon>
+      <ion-label>
       {{item.title}}
+      </ion-label>
     </ion-item>
   </ion-list>
 
@@ -25,7 +28,10 @@
     <ion-list>
       <!--Durchläuft weeklyItems im local storage und gibt jedes weeklyItem aus-->
       <ion-item *ngFor="let weeklyItem of weeklyItems" (click)="viewWeeklyItem(weeklyItem)">
-        {{weeklyItem.title}}
+        <ion-icon name="play" item-start></ion-icon>
+        <ion-label>
+      {{weeklyItem.title}} <br> Uhrzeit: {{weeklyItem.start}} Uhr bis {{weeklyItem.end}} Uhr
+        </ion-label>
       </ion-item>
     </ion-list>
 

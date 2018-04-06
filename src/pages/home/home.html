@@ -16,8 +16,8 @@
   </button>
 
   <ion-item>
-      <ion-label floating>Ziele</ion-label>
-  <ion-select [(ngModel)]="destinations" multiple="true" okText="Okay" cancelText="Dismiss">
+      <ion-label floating>Deine Ziele für die nächste Fahrt</ion-label>
+  <ion-select [(ngModel)]="destinations" multiple="true" okText="Okay" cancelText="Abbrechen">
     <!-- Gibt alle heutigen ToDos aus -->
     <ion-option *ngFor="let item of items" [value]="item">{{item.title}}</ion-option>
     <!-- Gibt alle wöchentlichen ToDos aus -->

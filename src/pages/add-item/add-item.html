@@ -23,13 +23,18 @@
     </ion-item>
 
     <ion-item>
-      <ion-label floating>Beginn</ion-label>
+      <ion-label floating>Beginn (optional)</ion-label>
       <ion-datetime displayFormat="H:mm" [(ngModel)]="start"></ion-datetime>
     </ion-item>
 
     <ion-item>
-      <ion-label floating>Ende</ion-label>
+      <ion-label floating>Ende (optional)</ion-label>
       <ion-datetime displayFormat="H:mm" [(ngModel)]="end"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Adresse (optional)</ion-label>
+      <ion-input type="text" [(ngModel)]="adress"></ion-input>
     </ion-item>
 
   </ion-list>

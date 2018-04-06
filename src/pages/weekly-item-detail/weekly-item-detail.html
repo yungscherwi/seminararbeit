@@ -20,9 +20,14 @@
   </ion-card>
   <ion-card>
     <ion-card-content>
+      {{day}}
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-content>
       {{adress}}
     </ion-card-content>
   </ion-card>
   <button ion-button color="primary">Bearbeiten</button>
-  <button ion-button color="danger" (click)="deleteItem()">Löschen</button>
+  <button ion-button color="danger" (click)="deleteWeeklyItem()">Löschen</button>
 </ion-content>

@@ -15,7 +15,26 @@ export class HomePage {
   reichweite: number;
   kmStand: number;
   constructor(public navCtrl: NavController,
-              public dataService: Data) {}
+              public dataService: Data) {
+          //Damit beim Starten der Anwedungs geladen wird
+                //Für heutige Aktivitäten
+                this.dataService.getData().then((todos) => {
+                  if(todos){
+                     this.items = JSON.parse(todos);
+                  }
+
+                });
+
+
+              //Für wöchentliche Aktivität
+              this.dataService.getWeeklyData().then((weeklyTodos) => {
+                if(weeklyTodos){
+                   this.weeklyItems = JSON.parse(weeklyTodos);
+                }
+
+              });
+
+              }
 
     //Damit Ziele jedes mal refresht wird
     ionViewWillEnter(){

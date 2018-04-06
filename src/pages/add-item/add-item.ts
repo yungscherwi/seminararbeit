@@ -12,6 +12,7 @@ export class AddItemPage {
   description: string;
   start: string;
   end: string;
+  adress: string;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -24,7 +25,8 @@ export class AddItemPage {
       title: this.title,
       description: this.description,
       start: this.start,
-      end: this.end
+      end: this.end,
+      adress: this.adress
     };
 
     this.view.dismiss(newItem);

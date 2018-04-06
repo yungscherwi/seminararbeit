@@ -5,6 +5,7 @@ import { AlertController } from 'ionic-angular'; //Für Alert
 import { AddItemPage } from '../add-item/add-item';
 import { AddWeeklyItemPage } from '../add-weekly-item/add-weekly-item';
 import { ItemDetailPage } from '../item-detail/item-detail';
+import { WeeklyItemDetailPage } from '../weekly-item-detail/weekly-item-detail';
 import { Data } from '../../providers/data/data';
 
 
@@ -42,7 +43,21 @@ export class MylifePage {
       }
 
     });
+    
+/* Not working as intended
+    this.dataService.getWeeklyDataMonday().then((mondayItems) => {
+      this.mondayItems = mondayItems;
+      console.log(mondayItems);
+    });
 
+    this.dataService.getWeeklyDataTuesday().then((tuesdayItems) => {
+      console.log(tuesdayItems);
+    });
+
+    this.dataService.getWeeklyDataWednesday().then((wednesdayItems) => {
+      console.log(wednesdayItems);
+    });
+*/
   }
 
 //**************** Wöchentliche Aktivitäten - Funktionen ********************
@@ -68,6 +83,14 @@ export class MylifePage {
   saveWeeklyItem(weeklyItem){
       this.weeklyItems.push(weeklyItem);
       this.dataService.saveWeekly(this.weeklyItems);
+  }
+
+// Zeige die Details des ausgewählten Items an
+viewWeeklyItem(weeklyItem){
+    this.navCtrl.push(WeeklyItemDetailPage, {
+      weeklyItem: weeklyItem
+    });
+
   }
 
 

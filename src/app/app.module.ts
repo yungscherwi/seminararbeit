@@ -12,6 +12,7 @@ import { EinstellungenPage } from '../pages/einstellungen/einstellungen';
 import { AddItemPage } from '../pages/add-item/add-item';
 import { AddWeeklyItemPage } from '../pages/add-weekly-item/add-weekly-item';
 import { ItemDetailPage } from '../pages/item-detail/item-detail';
+import { WeeklyItemDetailPage } from '../pages/weekly-item-detail/weekly-item-detail';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -29,7 +30,8 @@ import { Data } from '../providers/data/data';
     ProgressBarComponent,
     AddItemPage,
     AddWeeklyItemPage,
-    ItemDetailPage
+    ItemDetailPage,
+    WeeklyItemDetailPage
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,8 @@ import { Data } from '../providers/data/data';
     TabsPage,
     AddItemPage,
     AddWeeklyItemPage,
-    ItemDetailPage
+    ItemDetailPage,
+    WeeklyItemDetailPage
   ],
   providers: [
     StatusBar,
