@@ -3,7 +3,7 @@ import { IonicStorageModule } from '@ionic/storage'; //Für Speichern
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-
+import { HttpModule } from '@angular/http'; //Versuch Login
 
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -17,6 +17,7 @@ import { AddWeeklyItemPage } from '../pages/add-weekly-item/add-weekly-item';
 import { ItemDetailPage } from '../pages/item-detail/item-detail';
 import { WeeklyItemDetailPage } from '../pages/weekly-item-detail/weekly-item-detail';
 import { Geolocation } from '@ionic-native/geolocation'; //Import für Gps
+import { AuthService } from '../providers/auth-service/auth-service'; //Versuch Login
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -41,7 +42,7 @@ import { Data } from '../providers/data/data';
     LoginPage
   ],
   imports: [
-    BrowserModule,
+    BrowserModule, HttpModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot()
   ],
@@ -64,6 +65,7 @@ import { Data } from '../providers/data/data';
     StatusBar,
     SplashScreen,
     Geolocation,
+    AuthService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Data
   ]

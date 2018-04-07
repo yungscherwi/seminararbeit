@@ -16,6 +16,12 @@ export class HomePage {
   reichweite: number;
   kmStand: number;
   image: any;
+  //
+  items: any;
+  weeklyItems: any;
+  lat: any;
+  lng: any;
+  current_location: any;
 
   constructor(public navCtrl: NavController,
               public dataService: Data,
