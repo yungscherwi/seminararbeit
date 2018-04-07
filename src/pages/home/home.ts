@@ -3,7 +3,7 @@ import { NavController } from 'ionic-angular';
 import { Data } from '../../providers/data/data';
 import { Geolocation } from '@ionic-native/geolocation'; //Import für GPS
 
-declare var google: any; //Keine Errors mit google als variable
+declare var google: any;//Keine Errors mit google als variable
 
 @Component({
   selector: 'page-home',
@@ -16,7 +16,6 @@ export class HomePage {
   reichweite: number;
   kmStand: number;
   image: any;
-  //
   items: any;
   weeklyItems: any;
   lat: any;

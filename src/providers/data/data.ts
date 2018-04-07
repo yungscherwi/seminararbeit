@@ -23,10 +23,8 @@ export class Data {
         result = JSON.parse(result); //Um String aus Storage wieder in JS-Objekt umzuwandeln
         for (var i = 0; i < result.length; i++) {
             // Vergleicht jeweiligen Stellen des multidimensionalen Arrays
-            if (result[i][0] == item[0] && result[i][1] == item[1] && result[i][2] == item[2] && result[i][3] == item[3]) {
-                console.log(result)
+            if (result[i].title == item.title && result[i].description == item.description) {
                 result.splice(i,1);
-                console.log(result);
                 let newResult = JSON.stringify(result);
                 this.storage.set('todos', newResult);
                 return;
@@ -104,7 +102,7 @@ export class Data {
         result = JSON.parse(result); //Um String aus Storage wieder in JS-Objekt umzuwandeln
         for (var i = 0; i < result.length; i++) {
             // Vergleicht die jeweiligen Stellen des multidimensionalen Arrays
-            if (result[i][0] == weeklyItem[0] && result[i][1] == weeklyItem[1] && result[i][2] == weeklyItem[2] && result[i][3] == weeklyItem[3] && result[i][4] == weeklyItem[4]) {
+            if (result[i].title == weeklyItem.title && result[i].description == weeklyItem.description && result[i].day == weeklyItem.day) {
                 result.splice(i,1);
                 let newResult = JSON.stringify(result);
                 this.storage.set('weeklyTodos', newResult);

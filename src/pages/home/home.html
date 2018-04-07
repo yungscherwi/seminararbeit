@@ -5,6 +5,16 @@
 </ion-header>
 <ion-content padding>
   <ion-list>
+    <ion-item>
+        <ion-label floating>Deine Ziele für die nächste Fahrt</ion-label>
+    <ion-select [(ngModel)]="destinations" multiple="true" okText="Okay" cancelText="Abbrechen">
+      <!-- Gibt alle heutigen ToDos aus -->
+      <ion-option *ngFor="let item of items" [value]="item">{{item.title}}</ion-option>
+      <!-- Gibt alle wöchentlichen ToDos aus -->
+      <ion-option *ngFor="let weeklyItem of weeklyItems" [value]="weeklyItem">{{weeklyItem.title}}</ion-option>
+    </ion-select>
+    </ion-item>
+
   <button ion-item>
     <ion-icon name="battery-charging" item-start></ion-icon>
     Akku <progress-bar [progress]="loadProgress"></progress-bar> <!-- Fortschritt der Leiste an Variable loadProgress in .ts binden; jetzt vorerst statisch -->
@@ -14,17 +24,6 @@
     <ion-icon name="map" item-start></ion-icon>
     Reichweite {{reichweite}} km
   </button>
-
-  <ion-item>
-      <ion-label floating>Deine Ziele für die nächste Fahrt</ion-label>
-  <ion-select [(ngModel)]="destinations" multiple="true" okText="Okay" cancelText="Abbrechen">
-    <!-- Gibt alle heutigen ToDos aus -->
-    <ion-option *ngFor="let item of items" [value]="item">{{item.title}}</ion-option>
-    <!-- Gibt alle wöchentlichen ToDos aus -->
-    <ion-option *ngFor="let weeklyItem of weeklyItems" [value]="weeklyItem">{{weeklyItem.title}}</ion-option>
-  </ion-select>
-  </ion-item>
-
 </ion-list>
  <div #map id="map"></div> <!-- #map erlaubt Zugang zur node im ts script -->
 </ion-content>
