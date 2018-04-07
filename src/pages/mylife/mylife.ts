@@ -4,8 +4,10 @@ import { ModalController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular'; //Für Alert
 import { AddItemPage } from '../add-item/add-item';
 import { AddWeeklyItemPage } from '../add-weekly-item/add-weekly-item';
+import { AddImportantItemPage } from '../add-important-item/add-important-item';
 import { ItemDetailPage } from '../item-detail/item-detail';
 import { WeeklyItemDetailPage } from '../weekly-item-detail/weekly-item-detail';
+import { ImportantItemDetailPage } from '../important-item-detail/important-item-detail';
 import { Data } from '../../providers/data/data';
 
 
@@ -25,6 +27,7 @@ export class MylifePage {
 
   public items = [];
   public weeklyItems = [];
+  public importantItems = [];
 
   constructor(public navCtrl: NavController,
               public alertCtrl: AlertController,
@@ -88,24 +91,52 @@ export class MylifePage {
 
     });
 
-    //Für wöchentliche Aktivität
-  /*  this.dataService.getWeeklyData().then((weeklyTodos) => {
+    //Für wichtige Adressen
+    this.dataService.getImportantData().then((importantAdresses) => {
 
-      if(weeklyTodos){
-         this.weeklyItems = JSON.parse(weeklyTodos);
+      if(importantAdresses){
+         this.importantItems = JSON.parse(importantAdresses);
+         console.log(this.importantItems);
 
 
       }
 
 
-    });*/
+    });
 
   }
 
+//**************** Wichtige Adressen - Funktionen ********************
+addImportantItem(){
+
+      let addModal = this.modalCtrl.create(AddImportantItemPage);
+
+      addModal.onDidDismiss((importantItem) => {
+
+            if(importantItem){
+              this.saveImportantItem(importantItem);
+            }
+
+      });
+
+      addModal.present();
+
+      }
+
+saveImportantItem(importantItem){
+          this.importantItems.push(importantItem);
+          this.dataService.saveImportant(this.importantItems);
+}
+
+viewImportantItem(importantItem){
+    this.navCtrl.push(ImportantItemDetailPage, {
+      importantItem: importantItem
+    });
+}
 //**************** Wöchentliche Aktivitäten - Funktionen ********************
 
 // fügt wöchentliche Aktivität über Modal zu
-  addWeeklyItem(){
+addWeeklyItem(){
 
         let addModal = this.modalCtrl.create(AddWeeklyItemPage);
 
@@ -122,18 +153,18 @@ export class MylifePage {
         }
 
 //Pusht weeklyItem in die Liste und speichert es lokal
-  saveWeeklyItem(weeklyItem){
+saveWeeklyItem(weeklyItem){
       this.weeklyItems.push(weeklyItem);
       this.dataService.saveWeekly(this.weeklyItems);
-  }
+}
 
   // Zeige die Details des ausgewählten Items an
-  viewWeeklyItem(weeklyItem){
+viewWeeklyItem(weeklyItem){
     this.navCtrl.push(WeeklyItemDetailPage, {
       weeklyItem: weeklyItem
     });
 
-  }
+}
 
 
 //**************** Heutige Aktivitäten - Funktionen ********************

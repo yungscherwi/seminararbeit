@@ -2,6 +2,7 @@ import { Component, ViewChild, ElementRef } from '@angular/core'; //ViewChild un
 import { NavController } from 'ionic-angular';
 import { Data } from '../../providers/data/data';
 import { Geolocation } from '@ionic-native/geolocation'; //Import für GPS
+import { AlertController } from 'ionic-angular'; //Import für Alert
 
 declare var google: any;//Keine Errors mit google als variable
 
@@ -17,14 +18,16 @@ export class HomePage {
   kmStand: number;
   image: any;
   items: any;
-  weeklyItems: any;
+  mondayItems: any;
+  importantItems: any;
   lat: any;
   lng: any;
   current_location: any;
 
   constructor(public navCtrl: NavController,
               public dataService: Data,
-              public geo : Geolocation) {
+              public geo : Geolocation,
+              public alertCtrl: AlertController) {
           //Damit beim Starten der Anwedungs geladen wird
                 //Für heutige Aktivitäten
                 this.dataService.getData().then((todos) => {
@@ -34,11 +37,18 @@ export class HomePage {
 
                 });
 
-
               //Für wöchentliche Aktivität
-              this.dataService.getWeeklyData().then((weeklyTodos) => {
-                if(weeklyTodos){
-                   this.weeklyItems = JSON.parse(weeklyTodos);
+              this.dataService.getWeeklyDataMonday().then((mondayTodos) => {
+                if(mondayTodos){
+                   this.mondayItems = mondayTodos;
+                }
+
+              });
+
+              //Für wichtige Adressen
+              this.dataService.getImportantData().then((importantAdresses) => {
+                if(importantAdresses){
+                   this.importantItems = JSON.parse(importantAdresses);
                 }
 
               });
@@ -71,7 +81,16 @@ export class HomePage {
       this.showMap();
       this.loadProgress = 20; //Input für den Akkustand
       this.reichweite = 545; //Input für reichweite
-      this.kmStand = 5655; //Input für kmStand
+    }
+
+//Notification wenn niedriger Ladestand
+    batteryEmpty(){
+      let alert = this.alertCtrl.create({
+        title: 'Dein Akku ist bald leer!',
+        subTitle: 'Hier sind einige Dinge die du währenddessen erledigen könntest: <br><br> - Supermarkt<br>- Autowerkstatt ',
+        buttons: ['OK']
+      });
+      alert.present();
     }
 
 
@@ -90,53 +109,70 @@ export class HomePage {
     });
 
     //Marker hinzufügen
-        let marker1: google.maps.Marker = new google.maps.Marker({  //setzt Marker auf aktuelle Position
+        let markerUser: google.maps.Marker = new google.maps.Marker({  //setzt Marker auf aktuelle Position
           map: map,
           position: current_location,
         })
     //Marker für Ladesäulen
-      this.image = 'assets/imgs/ev_charging.png'
-      let marker2: google.maps.Marker = new google.maps.Marker({
+      this.imageCharging = 'assets/imgs/ev_charging.png'
+      let markerChargestation1: google.maps.Marker = new google.maps.Marker({
           map: map,
           position: chargestation1,
-          icon: this.image
+          icon: this.imageCharging
     })
-      let marker3: google.maps.Marker = new google.maps.Marker({
+      let markerChargestation2: google.maps.Marker = new google.maps.Marker({
         position: chargestation2,
         map: map,
-        icon: this.image
+        icon: this.imageCharging
       });
-      let marker4: google.maps.Marker = new google.maps.Marker({
+      let markerChargestation3: google.maps.Marker = new google.maps.Marker({
       map: map,
       position: chargestation3,
-      icon: this.image
+      icon: this.imageCharging
     })
-      //Informationen hinzufügen
-      var infoWindowOptions = {
-      content: 'Ladegeschwindigkeit:  ',
-      };
-      var infoWindow = new google.maps.InfoWindow(infoWindowOptions);
-      google.maps.event.addListener(marker2, 'click', function(e){
 
-        infoWindow.open(map, marker2);
+      //Infofenster eigener Standort
+      var infoWindowOptionsUser = {
+      content: 'Dein aktueller Standort',
+      };
+      var infoWindowUser = new google.maps.InfoWindow(infoWindowOptionsUser);
+      google.maps.event.addListener(markerUser, 'click', function(e){
+
+        infoWindowUser.open(map, markerUser);
       })
-      //2. Info Fenster
-      var infoWindowOptions2 = {
-      content: 'Ladegeschwindigkeit: '
-      };
-      var infoWindow2 = new google.maps.InfoWindow(infoWindowOptions2);
-      google.maps.event.addListener(marker3, 'click', function(e){
 
-        infoWindow2.open(map, marker3);
+      //Infofenster 1. Ladestation
+      var infoWindowOptionsChargestation1 = {
+      content: '<p><b>Name: </b>Parkhaus Groner Tor</p>'
+              +'<p><b>Adresse: </b>Walkemühlenweg 8, 37083 Göttingen</p>'
+              +'<p><b>Aktuelle Verfügbarkeit: </b> frei</p>',
+      };
+      var infoWindowChargestation1 = new google.maps.InfoWindow(infoWindowOptionsChargestation1);
+      google.maps.event.addListener(markerChargestation1, 'click', function(e){
+
+        infoWindowChargestation1.open(map, markerChargestation1);
       })
-      //3. Infofenster
-      var infoWindowOptions = {
-      content: 'Ladegeschwindigkeit:  ',
+      //Infofenster 2. Ladestation
+      var infoWindowOptionsChargestation2 = {
+      content: '<p><b>Name: </b>Landkreis</p>'
+              +'<p><b>Adresse: </b>Groner-Tor-Straße 31, 37073 Göttingen</p>'
+              +'<p><b>Aktuelle Verfügbarkeit: </b> frei</p>',
       };
-      var infoWindow = new google.maps.InfoWindow(infoWindowOptions);
-      google.maps.event.addListener(marker4, 'click', function(e){
+      var infoWindowChargestation2 = new google.maps.InfoWindow(infoWindowOptionsChargestation2);
+      google.maps.event.addListener(markerChargestation2, 'click', function(e){
 
-        infoWindow.open(map, marker4);
+        infoWindowChargestation2.open(map, markerChargestation2);
+      })
+      //Infofenster 3. Ladestation
+      var infoWindowOptionsChargestation3 = {
+      content: '<p><b>Name: </b>Bahnhof in Göttingen</p>'
+              +'<p><b>Adresse: </b>Bahnhofsplatz 1, 37073 Göttingen</p>'
+              +'<p><b>Aktuelle Verfügbarkeit: </b> besetzt</p>',
+      };
+      var infoWindowChargestation3 = new google.maps.InfoWindow(infoWindowOptionsChargestation3);
+      google.maps.event.addListener(markerChargestation3, 'click', function(e){
+
+        infoWindowChargestation3.open(map, markerChargestation3);
       })
         }).catch( err => console.log(err)); //Fehler in Konsolenausgabe auffangen
       }

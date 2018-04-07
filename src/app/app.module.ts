@@ -14,8 +14,10 @@ import { MylifePage } from '../pages/mylife/mylife'; //Import für Mylife tab
 import { EinstellungenPage } from '../pages/einstellungen/einstellungen';
 import { AddItemPage } from '../pages/add-item/add-item';
 import { AddWeeklyItemPage } from '../pages/add-weekly-item/add-weekly-item';
+import { AddImportantItemPage } from '../pages/add-important-item/add-important-item';
 import { ItemDetailPage } from '../pages/item-detail/item-detail';
 import { WeeklyItemDetailPage } from '../pages/weekly-item-detail/weekly-item-detail';
+import { ImportantItemDetailPage } from '../pages/important-item-detail/important-item-detail';
 import { Geolocation } from '@ionic-native/geolocation'; //Import für Gps
 import { AuthService } from '../providers/auth-service/auth-service'; //Versuch Login
 
@@ -35,8 +37,10 @@ import { Data } from '../providers/data/data';
     ProgressBarComponent,
     AddItemPage,
     AddWeeklyItemPage,
+    AddImportantItemPage,
     ItemDetailPage,
     WeeklyItemDetailPage,
+    ImportantItemDetailPage,
     WelcomePage,
     SignupPage,
     LoginPage
@@ -55,8 +59,10 @@ import { Data } from '../providers/data/data';
     TabsPage,
     AddItemPage,
     AddWeeklyItemPage,
+    AddImportantItemPage,
     ItemDetailPage,
     WeeklyItemDetailPage,
+    ImportantItemDetailPage,
     WelcomePage,
     SignupPage,
     LoginPage

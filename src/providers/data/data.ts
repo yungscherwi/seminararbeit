@@ -34,6 +34,34 @@ export class Data {
     });
   }
 
+//********************* Wichtige Adressen ******************************
+
+getImportantData() {
+  return this.storage.get('importantAdresses');
+}
+
+saveImportant(data){
+  let newData = JSON.stringify(data);
+  this.storage.set('importantAdresses', newData);
+}
+
+deleteImportant(importantItem){
+  return this.getImportantData().then(result => {
+    if (result) {
+      result = JSON.parse(result); //Um String aus Storage wieder in JS-Objekt umzuwandeln
+      for (var i = 0; i < result.length; i++) {
+          // Vergleicht die jeweiligen Stellen des multidimensionalen Arrays
+          if (result[i].title == importantItem.title && result[i].description == importantItem.description) {
+              result.splice(i,1);
+              let newResult = JSON.stringify(result);
+              this.storage.set('importantAdresses', newResult);
+              return;
+          }
+        }
+      }
+  });
+}
+
 //********************* Wöchentliche Aktivitäten ******************************
 
   getWeeklyData() {
@@ -51,7 +79,6 @@ export class Data {
           mondayItems.push(result[i]);
           }
         }
-        console.log(mondayItems);
         return(mondayItems);
       }
 
