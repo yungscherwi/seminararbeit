@@ -39,15 +39,16 @@ export class Data {
   getWeeklyData() {
     return this.storage.get('weeklyTodos');
   }
-/* Not working as intended
+
   getWeeklyDataMonday(){
     return this.storage.get('weeklyTodos').then(result => {
       if(result){
         result= JSON.parse(result); //Um String aus Storage wieder in JS-Objekt umzuwandeln
+        let mondayItems = [];
         for (var i = 0; i < result.length; i++){
         //  console.log(result[i]['day']);
-          if(result[i]['day'] == 'Montag'){
-          let mondayItems = result[i];
+          if(result[i].day == 'Montag'){
+          mondayItems.push(result[i]);
           }
         }
         return(mondayItems);
@@ -60,10 +61,11 @@ export class Data {
       return this.storage.get('weeklyTodos').then(result => {
         if(result){
           result= JSON.parse(result); //Um String aus Storage wieder in JS-Objekt umzuwandeln
+          let tuesdayItems = [];
           for (var i = 0; i < result.length; i++){
           //  console.log(result[i]['day']);
-            if(result[i]['day'] == 'Dienstag'){
-            let tuesdayItems = result[i];
+            if(result[i].day == 'Dienstag'){
+            tuesdayItems.push(result[i]);
             }
           }
           return(tuesdayItems);
@@ -76,10 +78,11 @@ export class Data {
         return this.storage.get('weeklyTodos').then(result => {
           if(result){
             result= JSON.parse(result); //Um String aus Storage wieder in JS-Objekt umzuwandeln
+            let wednesdayItems = [];
             for (var i = 0; i < result.length; i++){
             //  console.log(result[i]['day']);
-              if(result[i]['day'] == 'Mittwoch'){
-              let wednesdayItems = result[i];
+              if(result[i].day == 'Mittwoch'){
+              wednesdayItems.push(result[i]);
               }
             }
             return(wednesdayItems);
@@ -87,7 +90,75 @@ export class Data {
 
         });
       }
- */
+
+      getWeeklyDataThursday(){
+        return this.storage.get('weeklyTodos').then(result => {
+          if(result){
+            result= JSON.parse(result); //Um String aus Storage wieder in JS-Objekt umzuwandeln
+            let thursdayItems = [];
+            for (var i = 0; i < result.length; i++){
+            //  console.log(result[i]['day']);
+              if(result[i].day == 'Donnerstag'){
+              thursdayItems.push(result[i]);
+              }
+            }
+            return(thursdayItems);
+          }
+
+        });
+      }
+
+      getWeeklyDataFriday(){
+        return this.storage.get('weeklyTodos').then(result => {
+          if(result){
+            result= JSON.parse(result); //Um String aus Storage wieder in JS-Objekt umzuwandeln
+            let fridayItems = [];
+            for (var i = 0; i < result.length; i++){
+            //  console.log(result[i]['day']);
+              if(result[i].day == 'Freitag'){
+              fridayItems.push(result[i]);
+              }
+            }
+            return(fridayItems);
+          }
+
+        });
+      }
+
+      getWeeklyDataSaturday(){
+        return this.storage.get('weeklyTodos').then(result => {
+          if(result){
+            result= JSON.parse(result); //Um String aus Storage wieder in JS-Objekt umzuwandeln
+            let saturdayItems = [];
+            for (var i = 0; i < result.length; i++){
+            //  console.log(result[i]['day']);
+              if(result[i].day == 'Samstag'){
+              saturdayItems.push(result[i]);
+              }
+            }
+            return(saturdayItems);
+          }
+
+        });
+      }
+
+      getWeeklyDataSunday(){
+        return this.storage.get('weeklyTodos').then(result => {
+          if(result){
+            result= JSON.parse(result); //Um String aus Storage wieder in JS-Objekt umzuwandeln
+            let sundayItems = [];
+            for (var i = 0; i < result.length; i++){
+            //  console.log(result[i]['day']);
+              if(result[i].day == 'Sonntag'){
+              sundayItems.push(result[i]);
+              }
+            }
+            return(sundayItems);
+          }
+
+        });
+      }
+
 
 
 

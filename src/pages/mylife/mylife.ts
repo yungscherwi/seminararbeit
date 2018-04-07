@@ -15,6 +15,14 @@ import { Data } from '../../providers/data/data';
 })
 export class MylifePage {
 
+  public mondayItems = [];
+  public tuesdayItems = [];
+  public wednesdayItems = [];
+  public thursdayItems = [];
+  public fridayItems = [];
+  public saturdayItems = [];
+  public sundayItems = [];
+
   public items = [];
   public weeklyItems = [];
 
@@ -39,25 +47,59 @@ export class MylifePage {
     this.dataService.getWeeklyData().then((weeklyTodos) => {
 
       if(weeklyTodos){
+        console.log(weeklyTodos);
          this.weeklyItems = JSON.parse(weeklyTodos);
+         console.log(this.weeklyItems);
       }
 
-    });
-    
-/* Not working as intended
-    this.dataService.getWeeklyDataMonday().then((mondayItems) => {
-      this.mondayItems = mondayItems;
-      console.log(mondayItems);
+
     });
 
-    this.dataService.getWeeklyDataTuesday().then((tuesdayItems) => {
-      console.log(tuesdayItems);
+
+
+    this.dataService.getWeeklyDataMonday().then((mondayTodos) => {
+
+      if(mondayTodos){
+        this.mondayItems = mondayTodos;
+      }
     });
 
-    this.dataService.getWeeklyDataWednesday().then((wednesdayItems) => {
-      console.log(wednesdayItems);
+    this.dataService.getWeeklyDataTuesday().then((tuesdayTodos) => {
+      if(tuesdayTodos){
+        this.tuesdayItems = tuesdayTodos;
+      }
     });
-*/
+
+    this.dataService.getWeeklyDataWednesday().then((wednesdayTodos) => {
+      if(wednesdayTodos){
+        this.wednesdayItems = wednesdayTodos;
+      }
+    });
+
+    this.dataService.getWeeklyDataThursday().then((thursdayTodos) => {
+      if(thursdayTodos){
+        this.thursdayItems = thursdayTodos;
+      }
+    });
+
+    this.dataService.getWeeklyDataFriday().then((fridayTodos) => {
+      if(fridayTodos){
+        this.fridayItems = fridayTodos;
+      }
+    });
+
+    this.dataService.getWeeklyDataSaturday().then((saturdayTodos) => {
+      if(saturdayTodos){
+        this.saturdayItems = saturdayTodos;
+      }
+    });
+
+    this.dataService.getWeeklyDataSunday().then((sundayTodos) => {
+      if(sundayTodos){
+        this.sundayItems = sundayTodos;
+      }
+    });
+
   }
 
 //**************** Wöchentliche Aktivitäten - Funktionen ********************

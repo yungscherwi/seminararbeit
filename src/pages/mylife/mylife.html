@@ -45,11 +45,61 @@
   </ion-title>
 </ion-navbar>
     <ion-list>
-      <!--Durchläuft weeklyItems im local storage und gibt jedes weeklyItem aus-->
-      <ion-item *ngFor="let weeklyItem of weeklyItems" (click)="viewWeeklyItem(weeklyItem)">
+      <!--Durchläuft jeweilige Wochentag Items und gibt jedes Wochentags-Item aus-->
+      <br>
+      <h1>Montag</h1>
+      <ion-item *ngFor="let mondayItem of mondayItems" (click)="viewWeeklyItem(mondayItem)">
         <ion-icon name="play" item-start></ion-icon>
         <ion-label>
-      {{weeklyItem.title}} <br> Uhrzeit: {{weeklyItem.start}} Uhr bis {{weeklyItem.end}} Uhr
+      {{mondayItem.title}} <br> Uhrzeit: {{mondayItem.start}} Uhr bis {{mondayItem.end}} Uhr
+        </ion-label>
+      </ion-item>
+      <br>
+      <h1>Dienstag</h1>
+      <ion-item *ngFor="let tuesdayItem of tuesdayItems" (click)="viewWeeklyItem(tuesdayItem)">
+        <ion-icon name="play" item-start></ion-icon>
+        <ion-label>
+      {{tuesdayItem.title}} <br> Uhrzeit: {{tuesdayItem.start}} Uhr bis {{tuesdayItem.end}} Uhr
+        </ion-label>
+      </ion-item>
+      <br>
+      <h1>Mittwoch</h1>
+      <ion-item *ngFor="let wednesdayItem of wednesdayItems" (click)="viewWeeklyItem(wednesdayItem)">
+        <ion-icon name="play" item-start></ion-icon>
+        <ion-label>
+      {{wednesdayItem.title}} <br> Uhrzeit: {{wednesdayItem.start}} Uhr bis {{wednesdayItem.end}} Uhr
+        </ion-label>
+      </ion-item>
+      <br>
+      <h1>Donnerstag</h1>
+      <ion-item *ngFor="let thursdayItem of thursdayItems" (click)="viewWeeklyItem(thursdayItem)">
+        <ion-icon name="play" item-start></ion-icon>
+        <ion-label>
+      {{thursdayItem.title}} <br> Uhrzeit: {{thursdayItem.start}} Uhr bis {{thursdayItem.end}} Uhr
+        </ion-label>
+      </ion-item>
+      <br>
+      <h1>Freitag</h1>
+      <ion-item *ngFor="let fridayItem of fridayItems" (click)="viewWeeklyItem(fridayItem)">
+        <ion-icon name="play" item-start></ion-icon>
+        <ion-label>
+      {{fridayItem.title}} <br> Uhrzeit: {{fridayItem.start}} Uhr bis {{fridayItem.end}} Uhr
+        </ion-label>
+      </ion-item>
+      <br>
+      <h1>Samstag</h1>
+      <ion-item *ngFor="let saturdayItem of saturdayItems" (click)="viewWeeklyItem(saturdayItem)">
+        <ion-icon name="play" item-start></ion-icon>
+        <ion-label>
+      {{saturdayItem.title}} <br> Uhrzeit: {{saturdayItem.start}} Uhr bis {{saturdayItem.end}} Uhr
+        </ion-label>
+      </ion-item>
+      <br>
+      <h1>Sonntag</h1>
+      <ion-item *ngFor="let sundayItem of sundayItems" (click)="viewWeeklyItem(sundayItem)">
+        <ion-icon name="play" item-start></ion-icon>
+        <ion-label>
+      {{sundayItem.title}} <br> Uhrzeit: {{sundayItem.start}} Uhr bis {{sundayItem.end}} Uhr
         </ion-label>
       </ion-item>
     </ion-list>
