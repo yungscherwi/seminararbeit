@@ -14,7 +14,9 @@ export class AddWeeklyItemPage {
     start: string;
     end: string;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public view: ViewController) {
+    constructor(public navCtrl: NavController,
+                public navParams: NavParams,
+                public view: ViewController) {
     }
 
     saveWeeklyItem(){

@@ -51,6 +51,7 @@ export class Data {
           mondayItems.push(result[i]);
           }
         }
+        console.log(mondayItems);
         return(mondayItems);
       }
 

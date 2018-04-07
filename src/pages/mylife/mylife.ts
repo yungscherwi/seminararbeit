@@ -34,6 +34,51 @@ export class MylifePage {
 
 //Damit nach Löschen auch aktualisiert wird
   ionViewDidEnter() {
+
+
+      this.dataService.getWeeklyDataMonday().then((mondayTodos) => {
+
+        if(mondayTodos){
+          this.mondayItems = mondayTodos;
+        }
+      });
+
+      this.dataService.getWeeklyDataTuesday().then((tuesdayTodos) => {
+        if(tuesdayTodos){
+          this.tuesdayItems = tuesdayTodos;
+        }
+      });
+
+      this.dataService.getWeeklyDataWednesday().then((wednesdayTodos) => {
+        if(wednesdayTodos){
+          this.wednesdayItems = wednesdayTodos;
+        }
+      });
+
+      this.dataService.getWeeklyDataThursday().then((thursdayTodos) => {
+        if(thursdayTodos){
+          this.thursdayItems = thursdayTodos;
+        }
+      });
+
+      this.dataService.getWeeklyDataFriday().then((fridayTodos) => {
+        if(fridayTodos){
+          this.fridayItems = fridayTodos;
+        }
+      });
+
+      this.dataService.getWeeklyDataSaturday().then((saturdayTodos) => {
+        if(saturdayTodos){
+          this.saturdayItems = saturdayTodos;
+        }
+      });
+
+      this.dataService.getWeeklyDataSunday().then((sundayTodos) => {
+        if(sundayTodos){
+          this.sundayItems = sundayTodos;
+        }
+      });
+
     //Für heutige Aktivitäten
     this.dataService.getData().then((todos) => {
 
@@ -44,61 +89,16 @@ export class MylifePage {
     });
 
     //Für wöchentliche Aktivität
-    this.dataService.getWeeklyData().then((weeklyTodos) => {
+  /*  this.dataService.getWeeklyData().then((weeklyTodos) => {
 
       if(weeklyTodos){
-        console.log(weeklyTodos);
          this.weeklyItems = JSON.parse(weeklyTodos);
-         console.log(this.weeklyItems);
+
+
       }
 
 
-    });
-
-
-
-    this.dataService.getWeeklyDataMonday().then((mondayTodos) => {
-
-      if(mondayTodos){
-        this.mondayItems = mondayTodos;
-      }
-    });
-
-    this.dataService.getWeeklyDataTuesday().then((tuesdayTodos) => {
-      if(tuesdayTodos){
-        this.tuesdayItems = tuesdayTodos;
-      }
-    });
-
-    this.dataService.getWeeklyDataWednesday().then((wednesdayTodos) => {
-      if(wednesdayTodos){
-        this.wednesdayItems = wednesdayTodos;
-      }
-    });
-
-    this.dataService.getWeeklyDataThursday().then((thursdayTodos) => {
-      if(thursdayTodos){
-        this.thursdayItems = thursdayTodos;
-      }
-    });
-
-    this.dataService.getWeeklyDataFriday().then((fridayTodos) => {
-      if(fridayTodos){
-        this.fridayItems = fridayTodos;
-      }
-    });
-
-    this.dataService.getWeeklyDataSaturday().then((saturdayTodos) => {
-      if(saturdayTodos){
-        this.saturdayItems = saturdayTodos;
-      }
-    });
-
-    this.dataService.getWeeklyDataSunday().then((sundayTodos) => {
-      if(sundayTodos){
-        this.sundayItems = sundayTodos;
-      }
-    });
+    });*/
 
   }
 
@@ -127,8 +127,8 @@ export class MylifePage {
       this.dataService.saveWeekly(this.weeklyItems);
   }
 
-// Zeige die Details des ausgewählten Items an
-viewWeeklyItem(weeklyItem){
+  // Zeige die Details des ausgewählten Items an
+  viewWeeklyItem(weeklyItem){
     this.navCtrl.push(WeeklyItemDetailPage, {
       weeklyItem: weeklyItem
     });
