@@ -103,18 +103,26 @@ export class HomePage {
         var chargestation2 = new google.maps.LatLng(51.528420,9.937496);
         var chargestation3 = new google.maps.LatLng(51.533100,9.928791);
 
+        var workplace = new google.maps.LatLng(51.536484,9.934175);
+        var home = new google.maps.LatLng(51.527943,9.942784); //Geismar Landstraße 14
+
     var map = new google.maps.Map(document.getElementById('map'), {
       center: current_location,
       zoom: 14
     });
+//****************** Marker ****************
+//Bilder
+this.imageCharging = 'assets/imgs/ev_charging.png'
+this.imageWorkplace = 'assets/imgs/workplace.png'
+this.imageHome = 'assets/imgs/home.png'
 
-    //Marker hinzufügen
+
+    //Marker für User
         let markerUser: google.maps.Marker = new google.maps.Marker({  //setzt Marker auf aktuelle Position
           map: map,
           position: current_location,
         })
     //Marker für Ladesäulen
-      this.imageCharging = 'assets/imgs/ev_charging.png'
       let markerChargestation1: google.maps.Marker = new google.maps.Marker({
           map: map,
           position: chargestation1,
@@ -131,13 +139,29 @@ export class HomePage {
       icon: this.imageCharging
     })
 
+    //Marker für Arbeitsplatz
+    let markerWorkplace: google.maps.Marker = new google.maps.Marker({
+    map: map,
+    position: workplace,
+    icon: this.imageWorkplace
+  })
+
+    //Marker für Zuhause
+    let markerHome: google.maps.Marker = new google.maps.Marker({
+    map: map,
+    position: home,
+    icon: this.imageHome
+  })
+
+
+//****************** InfoWindows ****************
+
       //Infofenster eigener Standort
       var infoWindowOptionsUser = {
       content: 'Dein aktueller Standort',
       };
       var infoWindowUser = new google.maps.InfoWindow(infoWindowOptionsUser);
       google.maps.event.addListener(markerUser, 'click', function(e){
-
         infoWindowUser.open(map, markerUser);
       })
 
@@ -149,9 +173,9 @@ export class HomePage {
       };
       var infoWindowChargestation1 = new google.maps.InfoWindow(infoWindowOptionsChargestation1);
       google.maps.event.addListener(markerChargestation1, 'click', function(e){
-
         infoWindowChargestation1.open(map, markerChargestation1);
       })
+
       //Infofenster 2. Ladestation
       var infoWindowOptionsChargestation2 = {
       content: '<p><b>Name: </b>Landkreis</p>'
@@ -160,9 +184,9 @@ export class HomePage {
       };
       var infoWindowChargestation2 = new google.maps.InfoWindow(infoWindowOptionsChargestation2);
       google.maps.event.addListener(markerChargestation2, 'click', function(e){
-
         infoWindowChargestation2.open(map, markerChargestation2);
       })
+
       //Infofenster 3. Ladestation
       var infoWindowOptionsChargestation3 = {
       content: '<p><b>Name: </b>Bahnhof in Göttingen</p>'
@@ -171,11 +195,32 @@ export class HomePage {
       };
       var infoWindowChargestation3 = new google.maps.InfoWindow(infoWindowOptionsChargestation3);
       google.maps.event.addListener(markerChargestation3, 'click', function(e){
-
         infoWindowChargestation3.open(map, markerChargestation3);
       })
+
+      //Infofenster Zuhause
+      var infoWindowOptionsHome = {
+      content: '<p><b>Name: </b>Dein Zuhause</p>'
+              +'<p><b>Adresse: </b>Geismar Landstraße 14</p>'
+      };
+      var infoWindowHome = new google.maps.InfoWindow(infoWindowOptionsHome);
+      google.maps.event.addListener(markerHome, 'click', function(e){
+        infoWindowHome.open(map, markerHome);
+      })
+
+      //Arbeitsplatz
+      var infoWindowOptionsWorkplace = {
+      content: '<p><b>Name: </b>Dein Arbeitsplatz</p>'
+              +'<p><b>Adresse: </b>Weender Straße 75</p>'
+      };
+      var infoWindowWorkplace = new google.maps.InfoWindow(infoWindowOptionsWorkplace);
+      google.maps.event.addListener(markerWorkplace, 'click', function(e){
+        infoWindowWorkplace.open(map, markerWorkplace);
+      })
+
         }).catch( err => console.log(err)); //Fehler in Konsolenausgabe auffangen
       }
+
 
 
 }
