@@ -5,6 +5,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HttpModule } from '@angular/http'; //Versuch Login
 
+//Imports der Seiten
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { WelcomePage } from '../pages/welcome/welcome';
@@ -18,14 +19,14 @@ import { AddImportantItemPage } from '../pages/add-important-item/add-important-
 import { ItemDetailPage } from '../pages/item-detail/item-detail';
 import { WeeklyItemDetailPage } from '../pages/weekly-item-detail/weekly-item-detail';
 import { ImportantItemDetailPage } from '../pages/important-item-detail/important-item-detail';
-import { Geolocation } from '@ionic-native/geolocation'; //Import für Gps
-import { AuthService } from '../providers/auth-service/auth-service'; //Versuch Login
 
-
+//Imports für Komponenten und andere Dienste
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
 import { Data } from '../providers/data/data';
+import { Geolocation } from '@ionic-native/geolocation'; //Import für Gps
+import { AuthService } from '../providers/auth-service/auth-service'; //Versuch Login
 
 @NgModule({
   declarations: [

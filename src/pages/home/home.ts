@@ -28,7 +28,7 @@ export class HomePage {
               public dataService: Data,
               public geo : Geolocation,
               public alertCtrl: AlertController) {
-          //Damit beim Starten der Anwedungs geladen wird
+  //Damit beim Starten der Anwendung geladen wird
                 //Für heutige Aktivitäten
                 this.dataService.getData().then((todos) => {
                   if(todos){
@@ -55,7 +55,7 @@ export class HomePage {
 
               }
 
-    //Damit Ziele jedes mal refresht wird
+    //Bei jedem besuchen der Seite werden die Aktivitäten neu geladen
     ionViewWillEnter(){
                 //Für heutige Aktivitäten
                 this.dataService.getData().then((todos) => {
@@ -77,10 +77,11 @@ export class HomePage {
               });
       }
 
+    // Wenn der View geladen hat..
     ionViewDidLoad(){
       this.showMap();
-      this.loadProgress = 20; //Input für den Akkustand
-      this.reichweite = 545; //Input für reichweite
+      this.loadProgress = 45; //Input für den Akkustand
+      this.reichweite = 225; //Input für reichweite
     }
 
 //Notification wenn niedriger Ladestand
@@ -93,30 +94,34 @@ export class HomePage {
       alert.present();
     }
 
-
+//Zeigt Google Maps API (Definiert in index.html)
     showMap(){
         this.geo.getCurrentPosition().then( pos => {   //Frag aktuelle Position ab
         this.lat = pos.coords.latitude;
         this.lng = pos.coords.longitude;
+
+        //Initialisierung der Ladesäulen
         var current_location = new google.maps.LatLng(this.lat, this.lng);  //besetzt Variable current_location mit aktuellen LatLng
         var chargestation1 = new google.maps.LatLng(51.5322716,9.9298304);
         var chargestation2 = new google.maps.LatLng(51.528420,9.937496);
         var chargestation3 = new google.maps.LatLng(51.533100,9.928791);
 
+        //Initialisierung wichtiger Adressen
         var workplace = new google.maps.LatLng(51.536484,9.934175);
-        var home = new google.maps.LatLng(51.527943,9.942784); //Geismar Landstraße 14
+        var home = new google.maps.LatLng(51.527943,9.942784);
 
-    var map = new google.maps.Map(document.getElementById('map'), {
-      center: current_location,
-      zoom: 14
-    });
+        //Zentrum des Ausschnitts
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: current_location,
+          zoom: 14
+        });
+
+    //Bilder
+    this.imageCharging = 'assets/imgs/ev_charging.png'
+    this.imageWorkplace = 'assets/imgs/workplace.png'
+    this.imageHome = 'assets/imgs/home.png'
+
 //****************** Marker ****************
-//Bilder
-this.imageCharging = 'assets/imgs/ev_charging.png'
-this.imageWorkplace = 'assets/imgs/workplace.png'
-this.imageHome = 'assets/imgs/home.png'
-
-
     //Marker für User
         let markerUser: google.maps.Marker = new google.maps.Marker({  //setzt Marker auf aktuelle Position
           map: map,
@@ -208,7 +213,7 @@ this.imageHome = 'assets/imgs/home.png'
         infoWindowHome.open(map, markerHome);
       })
 
-      //Arbeitsplatz
+      //Infofenster Arbeitsplatz
       var infoWindowOptionsWorkplace = {
       content: '<p><b>Name: </b>Dein Arbeitsplatz</p>'
               +'<p><b>Adresse: </b>Weender Straße 75</p>'

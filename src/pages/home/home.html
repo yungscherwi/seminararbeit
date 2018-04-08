@@ -18,6 +18,7 @@
 
   <ion-item>
       <ion-label floating>Deine Ziele für die nächste Fahrt</ion-label>
+    <!--Erlaubt Auswahl mehrerer Checkboxes-->
   <ion-select [(ngModel)]="destinations" multiple="true" okText="Okay" cancelText="Abbrechen">
     <!-- Gibt alle heutigen ToDos aus -->
     <ion-option *ngFor="let item of items" [value]="item">{{item.title}}</ion-option>
@@ -30,6 +31,7 @@
 
   <ion-item>
       <ion-label floating>Wo soll deine Fahrt enden?</ion-label>
+    <!--Erlaubt Auswahl nur einer Checkbox-->
   <ion-select [(ngModel)]="finalDestination" okText="Okay" cancelText="Abbrechen">
     <!-- Gibt alle heutigen ToDos aus -->
     <ion-option *ngFor="let item of items" [value]="item">{{item.title}}</ion-option>

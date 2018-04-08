@@ -20,7 +20,7 @@ export class AddItemPage {
   }
 
   saveItem(){
-
+//initialisiert zu speicherndes Objekt
     let newItem = {
       title: this.title,
       description: this.description,
@@ -28,11 +28,11 @@ export class AddItemPage {
       end: this.end,
       adress: this.adress
     };
-
+//Fenster schließen und Objekt übergeben
     this.view.dismiss(newItem);
 
   }
-
+//Fenster schließen
   close() {
     this.view.dismiss();
 }

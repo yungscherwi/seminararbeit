@@ -19,12 +19,14 @@ export class ImportantItemDetailPage {
     }
 
     ionViewDidLoad() {
+      //Gibt jeweilige Teile der übergebenen Objekts zurück
       this.title = this.navParams.get('importantItem').title;
       this.description = this.navParams.get('importantItem').description;
       this.adress = this.navParams.get('importantItem').adress;
     }
 
     deleteImportantItem(){
+      //führt Funktion Löschfunktion im Provider Data aus
       this.dataService.deleteImportant(this.navParams.get('importantItem'));
       this.view.dismiss();
     }

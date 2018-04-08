@@ -22,7 +22,7 @@ export class WeeklyItemDetailPage {
   }
 
   ionViewDidLoad() {
-    //Lädt alle übergebenen Parameter
+    //Gibt jeweilige Teile der übergebenen Objekts zurück
     this.title = this.navParams.get('weeklyItem').title;
     this.description = this.navParams.get('weeklyItem').description;
     this.start = this.navParams.get('weeklyItem').start;
@@ -32,6 +32,7 @@ export class WeeklyItemDetailPage {
   }
 
   deleteWeeklyItem(){
+    //führt Funktion Löschfunktion im Provider Data aus
     this.dataService.deleteWeekly(this.navParams.get('weeklyItem'));
     this.view.dismiss();
   }

@@ -1,5 +1,6 @@
 progress-bar {
-
+  
+//Äußerer Balken
     .progress-outer {
         width: 96%;
         margin: 10px 2%;
@@ -11,6 +12,7 @@ progress-bar {
         border-radius: 20px;
     }
 
+//Blauer Balken
     .progress-inner {
         min-width: 15%;
         white-space: nowrap;

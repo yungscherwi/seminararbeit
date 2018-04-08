@@ -16,7 +16,7 @@ import { Data } from '../../providers/data/data';
   templateUrl: 'mylife.html',
 })
 export class MylifePage {
-
+//Initialisierung alle Aktivitäten-Arrays
   public mondayItems = [];
   public tuesdayItems = [];
   public wednesdayItems = [];
@@ -108,12 +108,13 @@ export class MylifePage {
 
 //**************** Wichtige Adressen - Funktionen ********************
 addImportantItem(){
-
+//Ruft Dialogfenster auf auf
       let addModal = this.modalCtrl.create(AddImportantItemPage);
 
       addModal.onDidDismiss((importantItem) => {
 
             if(importantItem){
+              //Ruft diese Funktion in mylife.ts auf
               this.saveImportantItem(importantItem);
             }
 
@@ -125,10 +126,12 @@ addImportantItem(){
 
 saveImportantItem(importantItem){
           this.importantItems.push(importantItem);
+          //ruft die Speicherfunktion im Provider Data auf
           this.dataService.saveImportant(this.importantItems);
 }
 
 viewImportantItem(importantItem){
+  //ruft Fenster auf
     this.navCtrl.push(ImportantItemDetailPage, {
       importantItem: importantItem
     });
@@ -137,12 +140,13 @@ viewImportantItem(importantItem){
 
 // fügt wöchentliche Aktivität über Modal zu
 addWeeklyItem(){
-
+//ruft dialogfenster auf
         let addModal = this.modalCtrl.create(AddWeeklyItemPage);
 
         addModal.onDidDismiss((weeklyItem) => {
 
               if(weeklyItem){
+                //Ruft diese Funktion in mylife.ts auf
                 this.saveWeeklyItem(weeklyItem);
               }
 
@@ -155,11 +159,13 @@ addWeeklyItem(){
 //Pusht weeklyItem in die Liste und speichert es lokal
 saveWeeklyItem(weeklyItem){
       this.weeklyItems.push(weeklyItem);
+      //ruft die Speicherfunktion im Provider Data auf
       this.dataService.saveWeekly(this.weeklyItems);
 }
 
   // Zeige die Details des ausgewählten Items an
 viewWeeklyItem(weeklyItem){
+//ruft Fenster auf
     this.navCtrl.push(WeeklyItemDetailPage, {
       weeklyItem: weeklyItem
     });
@@ -176,6 +182,7 @@ viewWeeklyItem(weeklyItem){
     addModal.onDidDismiss((item) => {
 
           if(item){
+            //Ruft diese Funktion in mylife.ts auf
             this.saveItem(item);
           }
     });
@@ -185,10 +192,12 @@ viewWeeklyItem(weeklyItem){
 
   saveItem(item){
       this.items.push(item);
+      //ruft die Speicherfunktion im Provider Data auf
       this.dataService.save(this.items);
     }
 
   viewItem(item){
+    //ruft Fenster auf
       this.navCtrl.push(ItemDetailPage, {
         item: item
       });

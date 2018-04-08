@@ -18,17 +18,18 @@ export class AddImportantItemPage {
   }
 
   saveImportantItem(){
-
+//initialisiert zu speicherndes Objekt
     let newImportantItem = {
       title: this.title,
       description: this.description,
       adress: this.adress
     };
-
+//Fenster schließen und Objekt übergeben
     this.view.dismiss(newImportantItem);
 
   }
 
+//Fenster schließen
   close() {
     this.view.dismiss();
   }
