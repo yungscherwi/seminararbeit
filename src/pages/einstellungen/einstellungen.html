@@ -8,5 +8,101 @@
 
 
 <ion-content padding>
+<!-- Liste Auswhlmöglichlkeiten -->
+  <ion-list>
+    <ion-item>
+      <ion-label>Schnell reisen</ion-label>
+      <ion-toggle [(ngModel)]="fast"></ion-toggle>
+    </ion-item>
 
+    <ion-item>
+      <ion-label>Filter Ladestationen aktivieren</ion-label>
+      <ion-toggle [(ngModel)]="filter"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Mushrooms</ion-label>
+      <ion-toggle [(ngModel)]="mushrooms"></ion-toggle>
+    </ion-item>
+
+
+  <ion-navbar color="light">
+    <ion-buttons end>
+        <button ion-button icon-only> <!-- (click)="addCar()" -->
+          <ion-icon name="add" ></ion-icon>
+        </button>
+    </ion-buttons>
+    <ion-title>
+      Fahrzeug
+    </ion-title>
+  </ion-navbar>
+
+<h5> Tesla S10 </h5>
+    <ion-item>
+      Batterie: 100 kWh <br>
+      Reichweite: 550 km <br>
+      Steckertyp: Typ C, Supercharger
+    </ion-item>
+    <!-- -->
+
+    <ion-navbar color="light">
+      <ion-title>
+        Filter Ladestationen
+      </ion-title>
+    </ion-navbar>
+    <ion-item>
+      <ion-label>Ladegeschwindigkeit filtern</ion-label>
+      <ion-toggle [(ngModel)]="filter_active"></ion-toggle>
+    </ion-item>
+    <!-- Unterschiedliche Ladegeschwindigkeiten -->
+    <ion-item>
+      <ion-label>Normale 2-5 kW</ion-label>
+      <ion-checkbox [(ngModel)]="normale" disabled={{!filter_active}}></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>Halb-Beschleunigte 5-16 kW</ion-label>
+        <ion-checkbox [(ngModel)]= "halb" disabled={{!filter_active}}></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>Beschleunigte 16-30 kW</ion-label>
+      <ion-checkbox [(ngModel)]="beschleunigt" disabled={{!filter_active}}></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>Schnelle 30-135 kW</ion-label>
+      <ion-checkbox [(ngModel)]="schnell" disabled={{!filter_active}}></ion-checkbox>
+    </ion-item>
+  <!-- -->
+  <ion-item>
+    <ion-label>Nur kostenlose Stationen</ion-label>
+    <ion-toggle [(ngModel)]="price"></ion-toggle>
+  </ion-item>
+  <ion-item>
+    <ion-label>Nur 24/7-Ladestationen</ion-label>
+    <ion-toggle [(ngModel)]="available"></ion-toggle>
+  </ion-item>
+  <ion-navbar color="light">
+    <ion-title>
+      Benachrichtigung Akkustand
+    </ion-title>
+  </ion-navbar>
+  <ion-item>
+    <ion-label>Aktivieren</ion-label>
+    <ion-toggle [(ngModel)]="notification"></ion-toggle>
+  </ion-item>
+
+
+    <!--  <ion-badge item-end color="danger">{{battery}}</ion-badge> -->
+    <ion-label>
+      Akkustand Warnhinweis bei:
+      <ion-badge item-right color="primary">{{battery}}%</ion-badge>
+    </ion-label>
+  <ion-item>
+   <ion-range min="0" max="100" step="5" [(ngModel)]="battery_notification" pin = "true" snaps="true" ratio = "true">
+     <ion-icon range-left name="battery-dead"></ion-icon>
+     <ion-icon range-right name="battery-full"></ion-icon>
+   </ion-range>
+ </ion-item>
+
+
+  </ion-list>
 </ion-content>
