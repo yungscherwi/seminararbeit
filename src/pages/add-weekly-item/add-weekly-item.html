@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Wöchentliche Aktivität hinzufügen
+    </ion-title>
+      <ion-buttons end>
+        <button ion-button icon-only (click)="close()"><ion-icon name="close"></ion-icon></button>
+      </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+
+    <ion-item>
+      <ion-label floating>Titel</ion-label>
+      <ion-input type="text" [(ngModel)]="title"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Beschreibung</ion-label>
+      <ion-input type="text" [(ngModel)]="description"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Wochentag</ion-label>
+      <ion-select [(ngModel)]="day" okText="Okay" cancelText="Abbrechen">
+        <ion-option value="Montag">Montag</ion-option>
+        <ion-option value="Dienstag">Dienstag</ion-option>
+        <ion-option value="Mittwoch">Mittwoch</ion-option>
+        <ion-option value="Donnerstag">Donnerstag</ion-option>
+        <ion-option value="Freitag">Freitag</ion-option>
+        <ion-option value="Samstag">Samstag</ion-option>
+        <ion-option value="Sonntag">Sonntag</ion-option>
+      </ion-select>
+</ion-item>
+
+    <ion-item>
+      <ion-label floating>Adresse</ion-label>
+      <ion-input type="text" [(ngModel)]="adress"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Beginn</ion-label>
+      <ion-datetime displayFormat="H:mm" [(ngModel)]="start"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Ende</ion-label>
+      <ion-datetime displayFormat="H:mm" [(ngModel)]="end"></ion-datetime>
+    </ion-item>
+
+  </ion-list>
+
+  <button full ion-button color="primary" (click)="saveWeeklyItem()">Speichern</button>
+
+</ion-content>

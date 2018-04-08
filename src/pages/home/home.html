@@ -1,11 +1,12 @@
 <ion-header>
-  <ion-navbar color="primary"k>
+  <ion-navbar color="primary">
     <ion-title>myCharge</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
   <ion-list>
-  <button ion-item>
+
+  <button ion-item (click)="batteryEmpty()">
     <ion-icon name="battery-charging" item-start></ion-icon>
     Akku <progress-bar [progress]="loadProgress"></progress-bar> <!-- Fortschritt der Leiste an Variable loadProgress in .ts binden; jetzt vorerst statisch -->
   </button>
@@ -15,11 +16,32 @@
     Reichweite {{reichweite}} km
   </button>
 
-  <button ion-item>
-    <ion-icon name="car" item-start></ion-icon>
-    KM-Stand {{kmStand}} km
-  </button>
+  <ion-item>
+      <ion-label floating>Deine Ziele für die nächste Fahrt</ion-label>
+  <ion-select [(ngModel)]="destinations" multiple="true" okText="Okay" cancelText="Abbrechen">
+    <!-- Gibt alle heutigen ToDos aus -->
+    <ion-option *ngFor="let item of items" [value]="item">{{item.title}}</ion-option>
+    <!-- Gibt alle wöchentlichen ToDos aus -->
+    <ion-option *ngFor="let mondayItem of mondayItems" [value]="mondayItem">{{mondayItem.title}}</ion-option>
+    <!-- Gibt alle wichtigen Adressen aus -->
+    <ion-option *ngFor="let importantItem of importantItems" [value]="importantItem">{{importantItem.title}}</ion-option>
+  </ion-select>
+  </ion-item>
+
+  <ion-item>
+      <ion-label floating>Wo soll deine Fahrt enden?</ion-label>
+  <ion-select [(ngModel)]="finalDestination" okText="Okay" cancelText="Abbrechen">
+    <!-- Gibt alle heutigen ToDos aus -->
+    <ion-option *ngFor="let item of items" [value]="item">{{item.title}}</ion-option>
+    <!-- Gibt alle wöchentlichen ToDos aus -->
+    <ion-option *ngFor="let mondayItem of mondayItems" [value]="mondayItem">{{mondayItem.title}}</ion-option>
+    <!-- Gibt alle wichtigen Adressen aus -->
+    <ion-option *ngFor="let importantItem of importantItems" [value]="importantItem">{{importantItem.title}}</ion-option>
+  </ion-select>
+  </ion-item>
 
 </ion-list>
  <div #map id="map"></div> <!-- #map erlaubt Zugang zur node im ts script -->
+ <br>
+ <button full ion-button color="primary">Fahrt starten</button>
 </ion-content>

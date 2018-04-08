@@ -1,0 +1,32 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>welcome</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-slides pager>
+  <!--Slide 1 (Name)-->
+     <ion-slide>
+       <h3>Willkommen bei myCharge </h3>
+       <p> Hallo! Ich bin dein persönlicher Elektroauto-Assistent</p>
+       <p> Wie darf ich dich nennen?</p>
+       <ion-item>
+     <ion-label stacked>Name</ion-label>
+     <ion-input type="text"></ion-input>
+   </ion-item>
+     </ion-slide>
+<!--Slide Anmeldung-->
+     <ion-slide>
+       <button ion-button full (click)="signup()">Signup</button>
+       <button ion-button full (click)="login()">Login</button>
+     </ion-slide>
+<!-- slide 3 -->
+     <ion-slide>
+       <button ion-button full (click)="close_tutorial()">Tutorial beenden!</button>
+     </ion-slide>
+   </ion-slides>
+</ion-content>

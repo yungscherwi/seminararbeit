@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      {{title}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-content>
+      {{description}}
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-content>
+      {{adress}}
+    </ion-card-content>
+  </ion-card>
+  <button ion-button color="primary">Bearbeiten</button>
+  <button ion-button color="danger" (click)="deleteImportantItem()">Löschen</button>
+</ion-content>
