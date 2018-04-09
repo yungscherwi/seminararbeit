@@ -9,6 +9,26 @@
 <ion-content padding>
   <ion-navbar color="light">
     <ion-buttons end>
+        <button ion-button icon-only (click)="addImportantItem()">
+          <ion-icon name="add" ></ion-icon>
+        </button>
+    </ion-buttons>
+    <ion-title>
+      Wichtige Adressen
+    </ion-title>
+  </ion-navbar>
+  <ion-list>
+    <!--Durchläuft items im local storage und gibt jedes item aus-->
+    <ion-item *ngFor="let importantItem of importantItems" (click)="viewImportantItem(importantItem)">
+      <ion-icon name="play" item-start></ion-icon>
+      <ion-label>
+      {{importantItem.title}}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-navbar color="light">
+    <ion-buttons end>
         <button ion-button icon-only (click)="addItem()">
           <ion-icon name="add" ></ion-icon>
         </button>

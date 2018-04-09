@@ -8,15 +8,18 @@ export class Data {
 
   }
 //********************* Heutige Aktivitäten ******************************
+//Ausgabe der Daten
   getData() {
     return this.storage.get('todos');
   }
 
+//Speichern der Daten
   save(data){
     let newData = JSON.stringify(data);
     this.storage.set('todos', newData);
   }
 
+//Löschen der Daten
   delete(item){
     return this.getData().then(result => {
       if (result) {
@@ -34,37 +37,65 @@ export class Data {
     });
   }
 
-//********************* Wöchentliche Aktivitäten ******************************
+//********************* Wichtige Adressen ******************************
+//Ausgabe der Daten
+getImportantData() {
+  return this.storage.get('importantAdresses');
+}
 
+//Speichern der Daten
+saveImportant(data){
+  let newData = JSON.stringify(data);
+  this.storage.set('importantAdresses', newData);
+}
+
+//Löschen der Daten
+deleteImportant(importantItem){
+  return this.getImportantData().then(result => {
+    if (result) {
+      result = JSON.parse(result); //Um String aus Storage wieder in JS-Objekt umzuwandeln
+      for (var i = 0; i < result.length; i++) {
+          // Vergleicht die jeweiligen Stellen des multidimensionalen Arrays
+          if (result[i].title == importantItem.title && result[i].description == importantItem.description) {
+              result.splice(i,1);
+              let newResult = JSON.stringify(result);
+              this.storage.set('importantAdresses', newResult);
+              return;
+          }
+        }
+      }
+  });
+}
+
+//********************* Wöchentliche Aktivitäten ******************************
+//Ausgabe der Daten
   getWeeklyData() {
     return this.storage.get('weeklyTodos');
   }
 
+//Ausgaben für entsprechende Tage
   getWeeklyDataMonday(){
     return this.storage.get('weeklyTodos').then(result => {
       if(result){
         result= JSON.parse(result); //Um String aus Storage wieder in JS-Objekt umzuwandeln
-        let mondayItems = [];
+        let mondayItems = []; //Array initialisieren
         for (var i = 0; i < result.length; i++){
-        //  console.log(result[i]['day']);
-          if(result[i].day == 'Montag'){
+          if(result[i].day == 'Montag'){ //Wenn day = Montag -> im Array mondayItems speichern
           mondayItems.push(result[i]);
           }
         }
-        console.log(mondayItems);
         return(mondayItems);
       }
 
     });
   }
-
+//Alle weiteren analog zu Montag
     getWeeklyDataTuesday(){
       return this.storage.get('weeklyTodos').then(result => {
         if(result){
           result= JSON.parse(result); //Um String aus Storage wieder in JS-Objekt umzuwandeln
           let tuesdayItems = [];
           for (var i = 0; i < result.length; i++){
-          //  console.log(result[i]['day']);
             if(result[i].day == 'Dienstag'){
             tuesdayItems.push(result[i]);
             }
@@ -81,7 +112,6 @@ export class Data {
             result= JSON.parse(result); //Um String aus Storage wieder in JS-Objekt umzuwandeln
             let wednesdayItems = [];
             for (var i = 0; i < result.length; i++){
-            //  console.log(result[i]['day']);
               if(result[i].day == 'Mittwoch'){
               wednesdayItems.push(result[i]);
               }
@@ -98,7 +128,6 @@ export class Data {
             result= JSON.parse(result); //Um String aus Storage wieder in JS-Objekt umzuwandeln
             let thursdayItems = [];
             for (var i = 0; i < result.length; i++){
-            //  console.log(result[i]['day']);
               if(result[i].day == 'Donnerstag'){
               thursdayItems.push(result[i]);
               }
@@ -115,7 +144,6 @@ export class Data {
             result= JSON.parse(result); //Um String aus Storage wieder in JS-Objekt umzuwandeln
             let fridayItems = [];
             for (var i = 0; i < result.length; i++){
-            //  console.log(result[i]['day']);
               if(result[i].day == 'Freitag'){
               fridayItems.push(result[i]);
               }
@@ -132,7 +160,6 @@ export class Data {
             result= JSON.parse(result); //Um String aus Storage wieder in JS-Objekt umzuwandeln
             let saturdayItems = [];
             for (var i = 0; i < result.length; i++){
-            //  console.log(result[i]['day']);
               if(result[i].day == 'Samstag'){
               saturdayItems.push(result[i]);
               }
@@ -149,7 +176,6 @@ export class Data {
             result= JSON.parse(result); //Um String aus Storage wieder in JS-Objekt umzuwandeln
             let sundayItems = [];
             for (var i = 0; i < result.length; i++){
-            //  console.log(result[i]['day']);
               if(result[i].day == 'Sonntag'){
               sundayItems.push(result[i]);
               }
@@ -162,12 +188,13 @@ export class Data {
 
 
 
-
+//Speichern der Daten
   saveWeekly(data){
     let newData = JSON.stringify(data);
     this.storage.set('weeklyTodos', newData);
   }
 
+//Löschen der Daten
   deleteWeekly(weeklyItem){
     return this.getWeeklyData().then(result => {
       if (result) {

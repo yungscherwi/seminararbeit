@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AlertController, NavController, NavParams} from 'ionic-angular';
+import { NavController, AlertController, NavController, NavParams} from 'ionic-angular';
 
 @Component({
   selector: 'page-einstellungen',

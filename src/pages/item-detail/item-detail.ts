@@ -22,6 +22,7 @@ export class ItemDetailPage {
   }
 
   ionViewDidLoad() {
+    //Gibt jeweilige Teile der übergebenen Objekts zurück
     this.title = this.navParams.get('item').title;
     this.description = this.navParams.get('item').description;
     this.start = this.navParams.get('item').start;
@@ -30,6 +31,7 @@ export class ItemDetailPage {
   }
 
   deleteItem(){
+    //führt Funktion Löschfunktion im Provider Data aus
     this.dataService.delete(this.navParams.get('item'));
     this.view.dismiss();
   }

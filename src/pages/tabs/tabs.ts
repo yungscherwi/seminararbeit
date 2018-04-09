@@ -8,7 +8,7 @@ import { EinstellungenPage } from '../einstellungen/einstellungen';
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
-
+//Roots für die Tabs in der Leiste unten
   tab1Root = HomePage;
   tab2Root = MylifePage;
   tab3Root = EinstellungenPage;
