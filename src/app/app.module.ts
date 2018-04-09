@@ -18,11 +18,9 @@ import { AddWeeklyItemPage } from '../pages/add-weekly-item/add-weekly-item';
 import { AddImportantItemPage } from '../pages/add-important-item/add-important-item';
 import { ItemDetailPage } from '../pages/item-detail/item-detail';
 import { WeeklyItemDetailPage } from '../pages/weekly-item-detail/weekly-item-detail';
-
-
 import { CarPage } from '../pages/car/car'; //Import
-
 import { ImportantItemDetailPage } from '../pages/important-item-detail/important-item-detail';
+import { NavigateMePage } from '../pages/navigate-me/navigate-me';
 
 
 
@@ -48,6 +46,7 @@ import { Geolocation } from '@ionic-native/geolocation'; //Import für Gps
     ItemDetailPage,
     WeeklyItemDetailPage,
     ImportantItemDetailPage,
+    NavigateMePage,
     WelcomePage,
     SignupPage,
     LoginPage,
@@ -71,6 +70,7 @@ import { Geolocation } from '@ionic-native/geolocation'; //Import für Gps
     ItemDetailPage,
     WeeklyItemDetailPage,
     ImportantItemDetailPage,
+    NavigateMePage,
     WelcomePage,
     SignupPage,
     LoginPage,

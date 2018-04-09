@@ -18,7 +18,6 @@
 
   <ion-item>
       <ion-label floating>Deine Ziele für die nächste Fahrt</ion-label>
-    <!--Erlaubt Auswahl mehrerer Checkboxes-->
   <ion-select [(ngModel)]="destinations" multiple="true" okText="Okay" cancelText="Abbrechen">
     <!-- Gibt alle heutigen ToDos aus -->
     <ion-option *ngFor="let item of items" [value]="item">{{item.title}}</ion-option>
@@ -31,7 +30,6 @@
 
   <ion-item>
       <ion-label floating>Wo soll deine Fahrt enden?</ion-label>
-    <!--Erlaubt Auswahl nur einer Checkbox-->
   <ion-select [(ngModel)]="finalDestination" okText="Okay" cancelText="Abbrechen">
     <!-- Gibt alle heutigen ToDos aus -->
     <ion-option *ngFor="let item of items" [value]="item">{{item.title}}</ion-option>
@@ -45,5 +43,5 @@
 </ion-list>
  <div #map id="map"></div> <!-- #map erlaubt Zugang zur node im ts script -->
  <br>
- <button full ion-button color="primary">Fahrt starten</button>
+ <button full ion-button color="primary" (click)="navMe()">Fahrt starten</button>
 </ion-content>

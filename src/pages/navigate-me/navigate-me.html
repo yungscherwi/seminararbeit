@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Deine optimale Route
+    </ion-title>
+      <ion-buttons end>
+        <button ion-button icon-only (click)="close()"><ion-icon name="close"></ion-icon></button>
+      </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+
+ <ion-card>
+  <ion-card-header>
+    Supermarkt (Entfernung: 2,6 km, Dauer: 9 Min.)
+  </ion-card-header>
+  <ion-card-content>
+    <b>Adresse:</b> Kurze-Geismar-Straße 26-30, 37073 Göttingen<br>
+    <b>Empfohlene Transportart:</b> Auto<br>
+    Ich empfehle dir zunächst zu "Supermarkt" zu fahren. Dort kannst du während deines Aufenthalts mit einer Ladegeschwindigkeit von 43 kW und mehr laden.
+  </ion-card-content>
+</ion-card>
+
+<ion-card>
+ <ion-card-header>
+   Optiker (Entfernung: 600 m, Dauer: 7 Min.)
+ </ion-card-header>
+ <ion-card-content>
+   <b>Adresse:</b> Weender Strasse 51, 37073 Göttingen<br>
+   <b>Empfohlene Transportart:</b> Zu Fuß <br>
+   Nach Supermarkt" kannst du zu "Optiker" gehen. Dein Auto kann weiter bei "Supermarkt" laden.
+ </ion-card-content>
+</ion-card>
+
+<ion-card>
+ <ion-card-header>
+   Gesangsunterricht (Entfernung 500 m, Dauer: 6 Min.)
+ </ion-card-header>
+ <ion-card-content>
+   <b>Adresse:</b> Papendiek 29, 37073 Göttingen<br>
+   <b>Empfohlene Transportart:</b> Zu Fuß <br>
+   Du hast heute von 16:30 Uhr bis 18:30 Uhr den Termin "Gesangsunterricht". Ich empfehle dir von "Optiker" dorthin zu gehen. Willst du vorher noch nachhause fahren, so plane insgesamt 19 Minuten für den Weg ein.
+ </ion-card-content>
+</ion-card>
+
+<ion-card>
+ <ion-card-header>
+   Tipps
+ </ion-card-header>
+ <ion-card-content>
+   Denk dran, du hast heute von 20:30 Uhr bis 22:30 Uhr den Termin "Kinoabend".
+ </ion-card-content>
+</ion-card>
+
+  </ion-list>
+
+  <button full ion-button color="primary" (click)="showNavigationOptions()">Navigation starten</button>
+
+</ion-content>
