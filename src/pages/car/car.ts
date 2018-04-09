@@ -19,39 +19,74 @@ export class CarPage {
 //Zum speichern des ausgewählten Fahruezg aus der Liste
   selectModel_S100D(){
     this.dataService.current_car = "Model S 100D"; //Setzt aktuelles Auto auf ausgewählten Wert
+    let alert = this.alertCtrl.create({   //Erstellt den Hinweis zur erfolgreichen Auswahl des Fahrezeugs
+      title: 'Ihr Auto wurde erfolgreich ausgewählt',
+      buttons: ['OK']
+    });
+    alert.present();  //Aufruf der Meldung 
     this.view.dismiss(); //Nachdem ein Auto ausgewählt wurde zurück gelangt man wieder ins Tutorial
   }
   selectModel_S75D(){
   this.dataService.current_car = "Model S 75D"; //wie oben, gleiche Funktionsweise bei folgenden Methoden
-  let alert = this.alertCtrl.create({   //Erstellt den Auszugebebenen Warhinweis
+  let alert = this.alertCtrl.create({   //Erstellt den Hinweis zur erfolgreichen Auswahl des Fahrezeugs
     title: 'Ihr Auto wurde erfolgreich ausgewählt',
     buttons: ['OK']
   });
-  alert.present();  //Aufruf der Fehlermeldung
+  alert.present();  //Aufruf der Meldung
   this.view.dismiss();
   }
   selectModelX(){
   this.dataService.current_car = "Model X 100D";
+  let alert = this.alertCtrl.create({   //Erstellt den Hinweis zur erfolgreichen Auswahl des Fahrezeugs
+    title: 'Ihr Auto wurde erfolgreich ausgewählt',
+    buttons: ['OK']
+  });
+  alert.present();  //Aufruf der Meldung
   this.view.dismiss();
   }
   selectEnvalia(){
   this.dataService.current_car = "e-NV200 Envalia";
+  let alert = this.alertCtrl.create({   //Erstellt den Hinweis zur erfolgreichen Auswahl des Fahrezeugs
+    title: 'Ihr Auto wurde erfolgreich ausgewählt',
+    buttons: ['OK']
+  });
+  alert.present();  //Aufruf der Meldung
   this.view.dismiss();
   }
   selectLeaf(){
   this.dataService.current_car = "Leaf";
+  let alert = this.alertCtrl.create({   //Erstellt den Hinweis zur erfolgreichen Auswahl des Fahrezeugs
+    title: 'Ihr Auto wurde erfolgreich ausgewählt',
+    buttons: ['OK']
+  });
+  alert.present();  //Aufruf der Meldung
   this.view.dismiss();
   }
   selecti3(){
   this.dataService.current_car = "i3";
+  let alert = this.alertCtrl.create({   //Erstellt den Hinweis zur erfolgreichen Auswahl des Fahrezeugs
+    title: 'Ihr Auto wurde erfolgreich ausgewählt',
+    buttons: ['OK']
+  });
+  alert.present();  //Aufruf der Meldung
   this.view.dismiss();
   }
   selectBerlingo(){
   this.dataService.current_car = "Berlingo Electric";
+  let alert = this.alertCtrl.create({   //Erstellt den Hinweis zur erfolgreichen Auswahl des Fahrezeugs
+    title: 'Ihr Auto wurde erfolgreich ausgewählt',
+    buttons: ['OK']
+  });
+  alert.present();  //Aufruf der Meldung
   this.view.dismiss();
   }
   selectCZero(){
   this.dataService.current_car = "C-Zero";
+  let alert = this.alertCtrl.create({   //Erstellt den Hinweis zur erfolgreichen Auswahl des Fahrezeugs
+    title: 'Ihr Auto wurde erfolgreich ausgewählt',
+    buttons: ['OK']
+  });
+  alert.present();  //Aufruf der Meldung
   this.view.dismiss();
   }
 

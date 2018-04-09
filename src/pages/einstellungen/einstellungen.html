@@ -25,7 +25,7 @@
       Fahrzeug
     </ion-title>
   </ion-navbar>
-
+<!-- Zugriff auf Variable aus ts file für Autodaten -->
 <h5>{{car_name}} </h5>
     <ion-item>
       Batterie: {{car_battery}} <br>
@@ -43,7 +43,7 @@
       <ion-label>Ladegeschwindigkeit filtern</ion-label>
       <ion-toggle [(ngModel)]="filter_active"></ion-toggle>
     </ion-item>
-    <!-- Unterschiedliche Ladegeschwindigkeiten -->
+    <!-- Filter für unterschiedliche Ladegeschwindigkeiten -->
     <ion-item>
       <ion-label>Normale 2-5 kW</ion-label>
       <ion-checkbox [(ngModel)]="normale" disabled={{!filter_active}}></ion-checkbox>
@@ -80,10 +80,9 @@
   </ion-item>
 
 
-    <!--  <ion-badge item-end color="danger">{{battery}}</ion-badge> -->
+
     <ion-label>
       Akkustand Warnhinweis bei:
-      <ion-badge item-right color="primary">{{battery}}%</ion-badge>
     </ion-label>
   <ion-item>
    <ion-range min="0" max="100" step="5" [(ngModel)]="battery_notification" pin = "true" snaps="true" ratio = "true">

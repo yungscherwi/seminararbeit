@@ -1,11 +1,6 @@
 import { Component } from '@angular/core';
-<<<<<<< HEAD
 import { AlertController, NavController, NavParams} from 'ionic-angular';
 import { Data } from '../../providers/data/data';
-
-=======
-import { NavController, AlertController, NavController, NavParams} from 'ionic-angular';
->>>>>>> fe6b2350d2e191500cf3b418a1cca414b78815ae
 
 @Component({
   selector: 'page-einstellungen',
@@ -40,7 +35,7 @@ constructor(public navCtrl: NavController,
         {brand: 'Nissan', model: 'e-NV200 Evalia', battery: '40 kWh', distance: 200, socketType: 'CHAdeMO, Typ 1'},
         {brand: 'Nissan', model: 'Leaf', battery: '40 kWh', distance: 378, socketType: 'CHAdeMO, Typ 2'},
         {brand: 'Tesla', model: 'Model S 75D', battery: '75 kWh', distance: 490, socketType: 'Supercharger, Typ 2'},
-        {brand: 'Tesla', model: 'S 100D', battery: '100 kWh', distance: '632', socketType: 'Supercharger, Typ 2'},
+        {brand: 'Tesla', model: 'Model S 100D', battery: '100 kWh', distance: '632', socketType: 'Supercharger, Typ 2'},
         {brand: 'Tesla', model: 'Model X 100D', battery: '100 kWh', distance: 565, socketType: 'Supercharger, Typ 2'},
         {brand: 'BMW', model: 'i3', battery: '33,2 kWh', distance: 312, socketType: 'CCS, Typ 2'},
         {brand: 'Citroen', model: 'Berlingo Electric', battery: '22,5 kWh', distance: 170, socketType: 'CHAdeMO, Typ 1'},
