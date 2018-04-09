@@ -20,6 +20,7 @@ import { ItemDetailPage } from '../pages/item-detail/item-detail';
 import { WeeklyItemDetailPage } from '../pages/weekly-item-detail/weekly-item-detail';
 import { ImportantItemDetailPage } from '../pages/important-item-detail/important-item-detail';
 
+
 //Imports für Komponenten und andere Dienste
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -72,7 +73,6 @@ import { AuthService } from '../providers/auth-service/auth-service'; //Versuch 
     StatusBar,
     SplashScreen,
     Geolocation,
-    AuthService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Data
   ]

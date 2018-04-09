@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>welcome</ion-title>
+    <ion-title>Willkommen bei myCharge</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -26,7 +26,16 @@
      </ion-slide>
 <!-- slide 3 -->
      <ion-slide>
-       <button ion-button full (click)="close_tutorial()">Tutorial beenden!</button>
+       <button ion-button full (click)="startApp()">Tutorial beenden!</button>
      </ion-slide>
-   </ion-slides>
+   <!-- slide 4 -->
+        <ion-slide>
+          <ion-list inset>
+            <button ion-item *ngFor="let car of carData" (click)="nextList()">
+              <h4>{{car.brand}}</h4>
+            </button>
+          </ion-list>
+
+        </ion-slide>
+      </ion-slides>
 </ion-content>

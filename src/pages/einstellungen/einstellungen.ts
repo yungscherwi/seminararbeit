@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { NavController, AlertController, NavController, NavParams} from 'ionic-angular';
 
 @Component({
   selector: 'page-einstellungen',
@@ -8,11 +7,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class EinstellungenPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+
+  battery: number = this.battery;
+  filter_active: boolean = this.filter_active; //Für die Prüfung ob Filter aktiviert werden sollen
+
+constructor(public navCtrl: NavController,
+            public navParams: NavParams,
+
+          ) { }
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EinstellungenPage');
-  }
+    }
 
-}
+  }
