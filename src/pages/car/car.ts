@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, ViewController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, ViewController, NavParams, AlertController } from 'ionic-angular';
 import { Data } from '../../providers/data/data';
 
 
@@ -13,7 +13,8 @@ export class CarPage {
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public dataService: Data, //dataService aufrufen, damit der abgespeicherte Wert für das aktuelle Auto auf allen Seiten verfügbar ist
-              public view: ViewController) { //ViewControler wird für dismiss Funktion benötigt
+              public view: ViewController, //ViewControler wird für dismiss Funktion benötigt
+              public alertCtrl: AlertController) {
   }
 //Zum speichern des ausgewählten Fahruezg aus der Liste
   selectModel_S100D(){
@@ -22,6 +23,12 @@ export class CarPage {
   }
   selectModel_S75D(){
   this.dataService.current_car = "Model S 75D"; //wie oben, gleiche Funktionsweise bei folgenden Methoden
+  let alert = this.alertCtrl.create({   //Erstellt den Auszugebebenen Warhinweis
+    title: 'Ihr Auto wurde erfolgreich ausgewählt',
+    //subTitle: 'Benutzername oder Passwort falsch!',
+    buttons: ['OK']
+  });
+  alert.present();  //Aufruf der Fehlermeldung
   this.view.dismiss();
   }
   selectModelX(){

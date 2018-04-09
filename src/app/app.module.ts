@@ -32,7 +32,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
 import { Data } from '../providers/data/data';
 import { Geolocation } from '@ionic-native/geolocation'; //Import für Gps
-import { AuthService } from '../providers/auth-service/auth-service'; //Versuch Login
+
 
 @NgModule({
   declarations: [
