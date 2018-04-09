@@ -85,8 +85,8 @@ export class HomePage {
 
     ionViewDidLoad(){
       this.showMap();
-      this.loadProgress = 20; //Input für den Akkustand
-      this.reichweite = 545; //Input für reichweite
+      this.loadProgress = 9; //Input für den Akkustand
+      this.reichweite = 50; //Input für reichweite
     }
 
 //Notification wenn niedriger Ladestand
@@ -107,7 +107,10 @@ export class HomePage {
         var current_location = new google.maps.LatLng(this.lat, this.lng);  //besetzt Variable current_location mit aktuellen LatLng
         var chargestation1 = new google.maps.LatLng(51.5322716,9.9298304);
         var chargestation2 = new google.maps.LatLng(51.528420,9.937496);
-        var chargestation3 = new google.maps.LatLng(51.533100,9.928791);
+        var chargestation3 = new google.maps.LatLng(51.536642,9.928020);
+        var chargestation4 = new google.maps.LatLng(51.539923,9.933797);
+        var chargestation5 = new google.maps.LatLng(51.529717,9.939565);
+        var chargestation6 = new google.maps.LatLng(51.531099,9.938224);
 
         var workplace = new google.maps.LatLng(51.536484,9.934175);
         var home = new google.maps.LatLng(51.527943,9.942784); //Geismar Landstraße 14
@@ -139,10 +142,29 @@ this.imageHome = 'assets/imgs/home.png'
         map: map,
         icon: this.imageCharging
       });
+
       let markerChargestation3: google.maps.Marker = new google.maps.Marker({
       map: map,
       position: chargestation3,
       icon: this.imageCharging
+    })
+
+    let markerChargestation4: google.maps.Marker = new google.maps.Marker({
+    map: map,
+    position: chargestation4,
+    icon: this.imageCharging
+  })
+
+    let markerChargestation5: google.maps.Marker = new google.maps.Marker({
+    map: map,
+    position: chargestation5,
+    icon: this.imageCharging
+  })
+
+    let markerChargestation6: google.maps.Marker = new google.maps.Marker({
+    map: map,
+    position: chargestation6,
+    icon: this.imageCharging
     })
 
     //Marker für Arbeitsplatz
@@ -171,10 +193,12 @@ this.imageHome = 'assets/imgs/home.png'
         infoWindowUser.open(map, markerUser);
       })
 
+//****** Ladesäulen Infofenster ***********
       //Infofenster 1. Ladestation
       var infoWindowOptionsChargestation1 = {
       content: '<p><b>Name: </b>Parkhaus Groner Tor</p>'
               +'<p><b>Adresse: </b>Walkemühlenweg 8, 37083 Göttingen</p>'
+              +'<p><b>Ladegeschwindigkeit: </b>22 kW</p>'
               +'<p><b>Aktuelle Verfügbarkeit: </b> frei</p>',
       };
       var infoWindowChargestation1 = new google.maps.InfoWindow(infoWindowOptionsChargestation1);
@@ -186,6 +210,7 @@ this.imageHome = 'assets/imgs/home.png'
       var infoWindowOptionsChargestation2 = {
       content: '<p><b>Name: </b>Landkreis</p>'
               +'<p><b>Adresse: </b>Groner-Tor-Straße 31, 37073 Göttingen</p>'
+              +'<p><b>Ladegeschwindigkeit: </b>22 kW</p>'
               +'<p><b>Aktuelle Verfügbarkeit: </b> frei</p>',
       };
       var infoWindowChargestation2 = new google.maps.InfoWindow(infoWindowOptionsChargestation2);
@@ -197,12 +222,51 @@ this.imageHome = 'assets/imgs/home.png'
       var infoWindowOptionsChargestation3 = {
       content: '<p><b>Name: </b>Bahnhof in Göttingen</p>'
               +'<p><b>Adresse: </b>Bahnhofsplatz 1, 37073 Göttingen</p>'
+              +'<p><b>Ladegeschwindigkeit: </b>43 kW und mehr</p>'
               +'<p><b>Aktuelle Verfügbarkeit: </b> besetzt</p>',
       };
       var infoWindowChargestation3 = new google.maps.InfoWindow(infoWindowOptionsChargestation3);
       google.maps.event.addListener(markerChargestation3, 'click', function(e){
         infoWindowChargestation3.open(map, markerChargestation3);
       })
+
+      //Infofenster 4. Ladestation
+      var infoWindowOptionsChargestation4 = {
+      content: '<p><b>Name: </b>Universität in Göttingen</p>'
+              +'<p><b>Adresse: </b>Weender Landstraße 14, 37073 Göttingen</p>'
+              +'<p><b>Ladegeschwindigkeit: </b>22 kW</p>'
+              +'<p><b>Aktuelle Verfügbarkeit: </b> frei</p>',
+      };
+      var infoWindowChargestation4 = new google.maps.InfoWindow(infoWindowOptionsChargestation4);
+      google.maps.event.addListener(markerChargestation4, 'click', function(e){
+        infoWindowChargestation4.open(map, markerChargestation4);
+      })
+
+      //Infofenster 5. Ladestation
+      var infoWindowOptionsChargestation5 = {
+      content: '<p><b>Name: </b>Schnelllader am Geismartor in Göttingen</p>'
+              +'<p><b>Adresse: </b>Am Geismartor 4, 37083 Göttingen</p>'
+              +'<p><b>Ladegeschwindigkeit: </b>43 kW und mehr</p>'
+              +'<p><b>Aktuelle Verfügbarkeit: </b> frei</p>',
+      };
+      var infoWindowChargestation5 = new google.maps.InfoWindow(infoWindowOptionsChargestation5);
+      google.maps.event.addListener(markerChargestation5, 'click', function(e){
+        infoWindowChargestation5.open(map, markerChargestation5);
+      })
+
+      //Infofenster 5. Ladestation
+      var infoWindowOptionsChargestation6 = {
+      content: '<p><b>Name: </b>Kaufland in Göttingen</p>'
+              +'<p><b>Adresse: </b>Kurze-Geismar-Straße 26-30, 37083 Göttingen</p>'
+              +'<p><b>Ladegeschwindigkeit: </b>43 kW und mehr</p>'
+              +'<p><b>Aktuelle Verfügbarkeit: </b> besetzt</p>',
+      };
+      var infoWindowChargestation6 = new google.maps.InfoWindow(infoWindowOptionsChargestation6);
+      google.maps.event.addListener(markerChargestation6, 'click', function(e){
+        infoWindowChargestation6.open(map, markerChargestation6);
+      })
+
+//******Wichtige Adressen Infofenster ***********
 
       //Infofenster Zuhause
       var infoWindowOptionsHome = {
