@@ -4,8 +4,10 @@ import { ModalController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular'; //Für Alert
 import { AddItemPage } from '../add-item/add-item';
 import { AddWeeklyItemPage } from '../add-weekly-item/add-weekly-item';
+import { AddImportantItemPage } from '../add-important-item/add-important-item';
 import { ItemDetailPage } from '../item-detail/item-detail';
 import { WeeklyItemDetailPage } from '../weekly-item-detail/weekly-item-detail';
+import { ImportantItemDetailPage } from '../important-item-detail/important-item-detail';
 import { Data } from '../../providers/data/data';
 
 
@@ -14,7 +16,7 @@ import { Data } from '../../providers/data/data';
   templateUrl: 'mylife.html',
 })
 export class MylifePage {
-
+//Initialisierung alle Aktivitäten-Arrays
   public mondayItems = [];
   public tuesdayItems = [];
   public wednesdayItems = [];
@@ -25,6 +27,7 @@ export class MylifePage {
 
   public items = [];
   public weeklyItems = [];
+  public importantItems = [];
 
   constructor(public navCtrl: NavController,
               public alertCtrl: AlertController,
@@ -88,30 +91,62 @@ export class MylifePage {
 
     });
 
-    //Für wöchentliche Aktivität
-  /*  this.dataService.getWeeklyData().then((weeklyTodos) => {
+    //Für wichtige Adressen
+    this.dataService.getImportantData().then((importantAdresses) => {
 
-      if(weeklyTodos){
-         this.weeklyItems = JSON.parse(weeklyTodos);
+      if(importantAdresses){
+         this.importantItems = JSON.parse(importantAdresses);
+         console.log(this.importantItems);
 
 
       }
 
 
-    });*/
+    });
 
   }
 
+//**************** Wichtige Adressen - Funktionen ********************
+addImportantItem(){
+//Ruft Dialogfenster auf auf
+      let addModal = this.modalCtrl.create(AddImportantItemPage);
+
+      addModal.onDidDismiss((importantItem) => {
+
+            if(importantItem){
+              //Ruft diese Funktion in mylife.ts auf
+              this.saveImportantItem(importantItem);
+            }
+
+      });
+
+      addModal.present();
+
+      }
+
+saveImportantItem(importantItem){
+          this.importantItems.push(importantItem);
+          //ruft die Speicherfunktion im Provider Data auf
+          this.dataService.saveImportant(this.importantItems);
+}
+
+viewImportantItem(importantItem){
+  //ruft Fenster auf
+    this.navCtrl.push(ImportantItemDetailPage, {
+      importantItem: importantItem
+    });
+}
 //**************** Wöchentliche Aktivitäten - Funktionen ********************
 
 // fügt wöchentliche Aktivität über Modal zu
-  addWeeklyItem(){
-
+addWeeklyItem(){
+//ruft dialogfenster auf
         let addModal = this.modalCtrl.create(AddWeeklyItemPage);
 
         addModal.onDidDismiss((weeklyItem) => {
 
               if(weeklyItem){
+                //Ruft diese Funktion in mylife.ts auf
                 this.saveWeeklyItem(weeklyItem);
               }
 
@@ -122,18 +157,20 @@ export class MylifePage {
         }
 
 //Pusht weeklyItem in die Liste und speichert es lokal
-  saveWeeklyItem(weeklyItem){
+saveWeeklyItem(weeklyItem){
       this.weeklyItems.push(weeklyItem);
+      //ruft die Speicherfunktion im Provider Data auf
       this.dataService.saveWeekly(this.weeklyItems);
-  }
+}
 
   // Zeige die Details des ausgewählten Items an
-  viewWeeklyItem(weeklyItem){
+viewWeeklyItem(weeklyItem){
+//ruft Fenster auf
     this.navCtrl.push(WeeklyItemDetailPage, {
       weeklyItem: weeklyItem
     });
 
-  }
+}
 
 
 //**************** Heutige Aktivitäten - Funktionen ********************
@@ -145,6 +182,7 @@ export class MylifePage {
     addModal.onDidDismiss((item) => {
 
           if(item){
+            //Ruft diese Funktion in mylife.ts auf
             this.saveItem(item);
           }
     });
@@ -154,10 +192,12 @@ export class MylifePage {
 
   saveItem(item){
       this.items.push(item);
+      //ruft die Speicherfunktion im Provider Data auf
       this.dataService.save(this.items);
     }
 
   viewItem(item){
+    //ruft Fenster auf
       this.navCtrl.push(ItemDetailPage, {
         item: item
       });

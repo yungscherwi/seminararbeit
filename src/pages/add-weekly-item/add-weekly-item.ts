@@ -20,7 +20,7 @@ export class AddWeeklyItemPage {
     }
 
     saveWeeklyItem(){
-
+//initialisiert zu speicherndes Objekt
       let newWeeklyItem = {
         title: this.title,
         description: this.description,
@@ -30,11 +30,11 @@ export class AddWeeklyItemPage {
         end: this.end,
 
       };
-
+//Fenster schließen und Objekt übergeben
       this.view.dismiss(newWeeklyItem);
 
     }
-
+//Fenster schließen
     close() {
       this.view.dismiss();
   }

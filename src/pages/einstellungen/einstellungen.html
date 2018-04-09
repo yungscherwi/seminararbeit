@@ -20,28 +20,17 @@
       <ion-toggle [(ngModel)]="filter"></ion-toggle>
     </ion-item>
 
-    <ion-item>
-      <ion-label>Mushrooms</ion-label>
-      <ion-toggle [(ngModel)]="mushrooms"></ion-toggle>
-    </ion-item>
-
-
   <ion-navbar color="light">
-    <ion-buttons end>
-        <button ion-button icon-only> <!-- (click)="addCar()" -->
-          <ion-icon name="add" ></ion-icon>
-        </button>
-    </ion-buttons>
     <ion-title>
       Fahrzeug
     </ion-title>
   </ion-navbar>
 
-<h5> Tesla S10 </h5>
+<h5>{{car_name}} </h5>
     <ion-item>
-      Batterie: 100 kWh <br>
-      Reichweite: 550 km <br>
-      Steckertyp: Typ C, Supercharger
+      Batterie: {{car_battery}} <br>
+      Reichweite: {{car_distance}} <br>
+      Steckertyp: {{car_socketType}}
     </ion-item>
     <!-- -->
 

@@ -1,41 +1,38 @@
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>Willkommen bei myCharge</ion-title>
+  <ion-navbar color = "primary">
+    <ion-title>myCharge</ion-title>
   </ion-navbar>
-
 </ion-header>
-
 
 <ion-content padding>
   <ion-slides pager>
-  <!--Slide 1 (Name)-->
+  <!--Slide 1 Willkommens Nachricht an Benutzer + direkte Login Option oder Start des Tutorials-->
      <ion-slide>
        <h3>Willkommen bei myCharge </h3>
-       <p> Hallo! Ich bin dein persönlicher Elektroauto-Assistent</p>
-       <p> Wie darf ich dich nennen?</p>
-       <ion-item>
-     <ion-label stacked>Name</ion-label>
-     <ion-input type="text"></ion-input>
-   </ion-item>
+       <p> Hallo! Ich bin Dein persönlicher Elektroauto-Assistent</p>
+       <p>Ich werde Dich im Umgang mit deinem Elektroauto unterstützen</p>
+       <button ion-button block (click)="startTut()">Tutorial Starten</button> <!-- Auswählen des Buttons startet Tutorial -->
+       
      </ion-slide>
-<!--Slide Anmeldung-->
+     <!--Slide Erste Schritte-->
      <ion-slide>
-       <button ion-button full (click)="signup()">Signup</button>
-       <button ion-button full (click)="login()">Login</button>
+        <h3>Erste Schritte mit myCharge</h3>
+        <ion-list inset>
+          <h6>Home</h6>
+          <p>Hier findest Du die Karte mit deinen Wegpunkten für die nächste Route</p>
+          <h6>myLife</h6>
+          <p> Du kannst hier deine Ziele verwalten, die Du unter Home zu deiner nächsten Fahrt hinzufügen kannst</p>
+          <h6>Einstellungen</h6>
+          <p>In den Einstellungen kannst Du dein Auto verwalten, sowie Filteroptionen für Ladestationen auswählen</p>
+        </ion-list>
      </ion-slide>
-<!-- slide 3 -->
+<!-- Auswahl Fahrezeug und Signup -->
      <ion-slide>
-       <button ion-button full (click)="startApp()">Tutorial beenden!</button>
+       <h3>myCharge Einrichtung</h3>
+       <p>Bitte wähle nun Dein Elektroauto aus </p>
+       <button ion-button block (click)="carSelect()">Auto einrichten</button> <!--Start Seite zum Auswählen des Fahrzeuges -->
+       <p>Bitte registriere Dich nun bei myCharge </p>
+       <button ion-button block (click)="signup()">Registrieren</button> <!-- Start Signup Page -->
      </ion-slide>
-   <!-- slide 4 -->
-        <ion-slide>
-          <ion-list inset>
-            <button ion-item *ngFor="let car of carData" (click)="nextList()">
-              <h4>{{car.brand}}</h4>
-            </button>
-          </ion-list>
-
-        </ion-slide>
-      </ion-slides>
+  </ion-slides>
 </ion-content>
