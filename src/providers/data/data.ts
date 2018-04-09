@@ -7,6 +7,7 @@ export class Data {
   constructor(public storage: Storage){
 
   }
+  current_car: string = "Model 3"; //Speichert das ausgewählte Auto 
 //********************* Heutige Aktivitäten ******************************
 //Ausgabe der Daten
   getData() {

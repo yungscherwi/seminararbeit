@@ -1,33 +1,32 @@
-<ion-content padding class="appBackground">
-  <ion-card>
-    <ion-card-header>
-      Registration
-    </ion-card-header>
-    <ion-card-content>
-      <ion-list>
-        <ion-item>
-          <ion-label stacked>Name</ion-label>
-          <ion-input type="text" value="" [(ngModel)]="userData.name"></ion-input>
-        </ion-item>
+<ion-header>
+  <ion-navbar color = "primary">
+    <ion-title>Registrieren</ion-title>
+  </ion-navbar>
+</ion-header>
 
-        <ion-item>
-          <ion-label stacked>Email</ion-label>
-          <ion-input type="text" value="" [(ngModel)]="userData.email"></ion-input>
-        </ion-item>
+<ion-content padding>
+<ion-list>
+  <ion-item>
+    <ion-label floating>Name</ion-label>
+    <ion-input type="text" #name></ion-input>
+  </ion-item>
 
-        <ion-item>
-          <ion-label stacked>Username</ion-label>
-          <ion-input type="text" value="" [(ngModel)]="userData.username"></ion-input>
-        </ion-item>
+  <ion-item>
+    <ion-label floating>Email</ion-label>
+    <ion-input type="text" #email></ion-input>
+  </ion-item>
 
-        <ion-item>
-          <ion-label stacked>Password</ion-label>
-          <ion-input type="password" value="" [(ngModel)]="userData.password"></ion-input>
-        </ion-item>
+  <ion-item>
+    <ion-label floating>Username</ion-label>
+    <ion-input type="text" #username></ion-input>
+  </ion-item>
 
-        <button ion-button full color="success" (click)="signup()">Sign up</button>
-    <!--    <a href="#" (click)="login()">Login Page</a> -->
-      </ion-list>
-    </ion-card-content>
-  </ion-card>
+  <ion-item>
+    <ion-label floating>Password</ion-label>
+    <ion-input type="password" #password></ion-input>
+  </ion-item>
+
+  <button block ion-button color="success" (click)="signup_ready()">Anmelden</button>
+</ion-list>
+
 </ion-content>

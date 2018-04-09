@@ -1,7 +1,7 @@
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Login</ion-title>
+  <ion-navbar color = "primary">
+    <ion-title>Anmelden</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -12,15 +12,15 @@
 
     <ion-item>
       <ion-label floating>Username</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" #username></ion-input>   <!--Eingabe Text kann ueber username in ts Datei erreicht werden -->
     </ion-item>
 
     <ion-item>
       <ion-label floating>Password</ion-label>
-      <ion-input type="password"></ion-input>
+      <ion-input type="password" #password></ion-input> <!--Eingabe Text kann ueber password in ts Datei erreicht werden -->
     </ion-item>
     <!-- Sign in Button -->
-      <button ion-button round (click) = "login()">Sign In</button>
+      <button ion-button block (click) = "login_ready()">Anmelden</button> <!-- Button zum einloggen -->
   </ion-list>
 
 

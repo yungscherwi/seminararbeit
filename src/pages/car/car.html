@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar color = "primary">
+    <ion-title>Auto auswählen</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list inset>
+    <!-- Liste von Fahrzeugen, die bei der Fahrzeugeinrichtung ausgewählt werden können -->
+    <ion-list-header>Tesla</ion-list-header>
+      <button ion-item (click)="selectModel_S100D()">Model S 100D</button>  <!-- Durch auswählen wird Funktion in ts. File zur Auswahl des Autos gestartet -->
+      <button ion-item (click)="selectModel_S75D()">Model S 75D</button> <!-- Gleiche Funktionsweise des Buttons -->
+      <button ion-item (click)="selectModelX()">Model X 100D</button>
+  <ion-list-header>Nissan</ion-list-header>
+        <button ion-item (click)="selectEnvalia()">e-NV200 Envalia</button>
+        <button ion-item (click)="selectLeaf()">Leaf</button>
+    <ion-list-header>BMW</ion-list-header>
+        <button ion-item (click)="selecti3()">i3</button>
+    <ion-list-header>Citroen</ion-list-header>
+        <button ion-item (click)="selectBerlingo()">Berlingo Electric</button>
+        <button ion-item (click)="selectCZero()">C-Zero</button>
+
+  </ion-list>
+</ion-content>

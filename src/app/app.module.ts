@@ -18,7 +18,12 @@ import { AddWeeklyItemPage } from '../pages/add-weekly-item/add-weekly-item';
 import { AddImportantItemPage } from '../pages/add-important-item/add-important-item';
 import { ItemDetailPage } from '../pages/item-detail/item-detail';
 import { WeeklyItemDetailPage } from '../pages/weekly-item-detail/weekly-item-detail';
+
+
+import { CarPage } from '../pages/car/car'; //Import
+
 import { ImportantItemDetailPage } from '../pages/important-item-detail/important-item-detail';
+
 
 
 //Imports für Komponenten und andere Dienste
@@ -27,7 +32,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
 import { Data } from '../providers/data/data';
 import { Geolocation } from '@ionic-native/geolocation'; //Import für Gps
-import { AuthService } from '../providers/auth-service/auth-service'; //Versuch Login
+
 
 @NgModule({
   declarations: [
@@ -45,7 +50,8 @@ import { AuthService } from '../providers/auth-service/auth-service'; //Versuch 
     ImportantItemDetailPage,
     WelcomePage,
     SignupPage,
-    LoginPage
+    LoginPage,
+    CarPage
   ],
   imports: [
     BrowserModule, HttpModule,
@@ -67,7 +73,8 @@ import { AuthService } from '../providers/auth-service/auth-service'; //Versuch 
     ImportantItemDetailPage,
     WelcomePage,
     SignupPage,
-    LoginPage
+    LoginPage,
+    CarPage
   ],
   providers: [
     StatusBar,

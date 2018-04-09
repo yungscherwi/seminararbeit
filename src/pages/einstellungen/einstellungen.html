@@ -20,28 +20,17 @@
       <ion-toggle [(ngModel)]="filter"></ion-toggle>
     </ion-item>
 
-    <ion-item>
-      <ion-label>Mushrooms</ion-label>
-      <ion-toggle [(ngModel)]="mushrooms"></ion-toggle>
-    </ion-item>
-
-
   <ion-navbar color="light">
-    <ion-buttons end>
-        <button ion-button icon-only> <!-- (click)="addCar()" -->
-          <ion-icon name="add" ></ion-icon>
-        </button>
-    </ion-buttons>
     <ion-title>
       Fahrzeug
     </ion-title>
   </ion-navbar>
-
-<h5> Tesla S10 </h5>
+<!-- Zugriff auf Variable aus ts file für Autodaten -->
+<h5>{{car_name}} </h5>
     <ion-item>
-      Batterie: 100 kWh <br>
-      Reichweite: 550 km <br>
-      Steckertyp: Typ C, Supercharger
+      Batterie: {{car_battery}} <br>
+      Reichweite: {{car_distance}} <br>
+      Steckertyp: {{car_socketType}}
     </ion-item>
     <!-- -->
 
@@ -54,7 +43,7 @@
       <ion-label>Ladegeschwindigkeit filtern</ion-label>
       <ion-toggle [(ngModel)]="filter_active"></ion-toggle>
     </ion-item>
-    <!-- Unterschiedliche Ladegeschwindigkeiten -->
+    <!-- Filter für unterschiedliche Ladegeschwindigkeiten -->
     <ion-item>
       <ion-label>Normale 2-5 kW</ion-label>
       <ion-checkbox [(ngModel)]="normale" disabled={{!filter_active}}></ion-checkbox>
@@ -91,10 +80,9 @@
   </ion-item>
 
 
-    <!--  <ion-badge item-end color="danger">{{battery}}</ion-badge> -->
+
     <ion-label>
       Akkustand Warnhinweis bei:
-      <ion-badge item-right color="primary">{{battery}}%</ion-badge>
     </ion-label>
   <ion-item>
    <ion-range min="0" max="100" step="5" [(ngModel)]="battery_notification" pin = "true" snaps="true" ratio = "true">

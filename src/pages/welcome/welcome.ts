@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core'; //View-Child für Verbindung zu Slides in HTML 
 import { SignupPage } from '../signup/signup';
 import { LoginPage } from '../login/login';
 import { TabsPage } from '../tabs/tabs';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular'; //Slides
+import { CarPage } from '../car/car';
 
 
 @IonicPage()
@@ -11,41 +12,29 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'welcome.html',
 })
 export class WelcomePage {
-
-  originalData: any;
-  carData: any;
+  @ViewChild(Slides) slides: Slides;  //Verbindung zu Slides die in HTML aufgerufen werden
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              ) {
-
-
-  this.originalData = [
-    {brand: 'Nissan', model: 'e-NV200 Evalia', battery: '40 kWh', distance: 200, socketType: 'CHAdeMO, Typ 1'},
-    {brand: 'Nissan', model: 'Leaf', battery: '40 kWh', distance: 378, socketType: 'CHAdeMO, Type 2'},
-    {brand: 'Tesla', model: 'Model 3', battery: '50 kWh', distance: 444, socketType: 'Supercharger, Typ 2'},
-    {brand: 'Tesla', model: 'S 100D', battery: '100 kWh', distance: 632, socketType: 'Supercharger, Typ 2'},
-  ]
-  this.carData = JSON.parse(JSON.stringify(this.originalData));
-}
+            ) { }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad WelcomePage');
-    //this.filterData();
   }
   signup(){
-    this.navCtrl.push(SignupPage);
+    this.navCtrl.push(SignupPage); //ruft die Seite zum Registrieren auf
   }
   login(){
-    this.navCtrl.push(LoginPage);
+    this.navCtrl.push(LoginPage); //Zum überspringen des Tutorial ruft direkt Login auf
   }
   startApp() {
-  this.navCtrl.push(TabsPage);
+  this.navCtrl.push(TabsPage);  //nach erfolgreichem Login wird man auf die den Home Tab der App geleitet
   }
-  /*filterData(){
-    this.carData = this.carData.filter((car) => {
-     return car.brand != car.brand;
-  )};
- }
-*/
+  startTut(){
+    this.slides.slideNext();  //Zum Start des Tutorium auf nächste Seite leiten
+  }
+  carSelect(){
+    this.navCtrl.push(CarPage); //Ruft eine Seite zum auswählen des eigenen Fahrzeuges auf
+  }
+
 }
