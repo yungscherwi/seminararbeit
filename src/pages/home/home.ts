@@ -93,14 +93,15 @@ export class HomePage {
     batteryEmpty(){
       let alert = this.alertCtrl.create({
         title: 'Dein Akku ist bald leer!',
-        subTitle: 'Hier sind einige Dinge die du währenddessen erledigen könntest: <br><br> - Supermarkt<br>- Autowerkstatt ',
+        subTitle: 'Hier sind einige Dinge die du währenddessen erledigen könntest: <br><br> - Supermarkt<br>- Optiker ',
         buttons: ['OK']
       });
       alert.present();
     }
 
-
+//Aufruf von Google Maps
     showMap(){
+    //Definition der Marker
         this.geo.getCurrentPosition().then( pos => {   //Frag aktuelle Position ab
         this.lat = pos.coords.latitude;
         this.lng = pos.coords.longitude;

@@ -20,16 +20,16 @@ export class CarPage {
   selectModel_S100D(){
     this.dataService.current_car = "Model S 100D"; //Setzt aktuelles Auto auf ausgewählten Wert
     let alert = this.alertCtrl.create({   //Erstellt den Hinweis zur erfolgreichen Auswahl des Fahrezeugs
-      title: 'Ihr Auto wurde erfolgreich ausgewählt',
+      title: 'Model S 100D erfolgreich als dein Auto ausgewählt',
       buttons: ['OK']
     });
-    alert.present();  //Aufruf der Meldung 
+    alert.present();  //Aufruf der Meldung
     this.view.dismiss(); //Nachdem ein Auto ausgewählt wurde zurück gelangt man wieder ins Tutorial
   }
   selectModel_S75D(){
   this.dataService.current_car = "Model S 75D"; //wie oben, gleiche Funktionsweise bei folgenden Methoden
   let alert = this.alertCtrl.create({   //Erstellt den Hinweis zur erfolgreichen Auswahl des Fahrezeugs
-    title: 'Ihr Auto wurde erfolgreich ausgewählt',
+    title: 'Model S 75D erfolgreich als dein Auto ausgewählt',
     buttons: ['OK']
   });
   alert.present();  //Aufruf der Meldung
@@ -38,7 +38,7 @@ export class CarPage {
   selectModelX(){
   this.dataService.current_car = "Model X 100D";
   let alert = this.alertCtrl.create({   //Erstellt den Hinweis zur erfolgreichen Auswahl des Fahrezeugs
-    title: 'Ihr Auto wurde erfolgreich ausgewählt',
+    title: 'Model X 100D erfolgreich als dein Auto ausgewählt',
     buttons: ['OK']
   });
   alert.present();  //Aufruf der Meldung
@@ -47,7 +47,7 @@ export class CarPage {
   selectEnvalia(){
   this.dataService.current_car = "e-NV200 Envalia";
   let alert = this.alertCtrl.create({   //Erstellt den Hinweis zur erfolgreichen Auswahl des Fahrezeugs
-    title: 'Ihr Auto wurde erfolgreich ausgewählt',
+    title: 'e-NV200 Envalia erfolgreich als dein Auto ausgewählt',
     buttons: ['OK']
   });
   alert.present();  //Aufruf der Meldung
@@ -56,7 +56,7 @@ export class CarPage {
   selectLeaf(){
   this.dataService.current_car = "Leaf";
   let alert = this.alertCtrl.create({   //Erstellt den Hinweis zur erfolgreichen Auswahl des Fahrezeugs
-    title: 'Ihr Auto wurde erfolgreich ausgewählt',
+    title: 'Leaf erfolgreich als dein Auto ausgewählt',
     buttons: ['OK']
   });
   alert.present();  //Aufruf der Meldung
@@ -65,7 +65,7 @@ export class CarPage {
   selecti3(){
   this.dataService.current_car = "i3";
   let alert = this.alertCtrl.create({   //Erstellt den Hinweis zur erfolgreichen Auswahl des Fahrezeugs
-    title: 'Ihr Auto wurde erfolgreich ausgewählt',
+    title: 'i3 erfolgreich als dein Auto ausgewählt',
     buttons: ['OK']
   });
   alert.present();  //Aufruf der Meldung
@@ -74,7 +74,7 @@ export class CarPage {
   selectBerlingo(){
   this.dataService.current_car = "Berlingo Electric";
   let alert = this.alertCtrl.create({   //Erstellt den Hinweis zur erfolgreichen Auswahl des Fahrezeugs
-    title: 'Ihr Auto wurde erfolgreich ausgewählt',
+    title: 'Berlingo Electric erfolgreich als dein Auto ausgewählt',
     buttons: ['OK']
   });
   alert.present();  //Aufruf der Meldung
@@ -83,7 +83,7 @@ export class CarPage {
   selectCZero(){
   this.dataService.current_car = "C-Zero";
   let alert = this.alertCtrl.create({   //Erstellt den Hinweis zur erfolgreichen Auswahl des Fahrezeugs
-    title: 'Ihr Auto wurde erfolgreich ausgewählt',
+    title: 'C-Zero erfolgreich als dein Auto ausgewählt',
     buttons: ['OK']
   });
   alert.present();  //Aufruf der Meldung
