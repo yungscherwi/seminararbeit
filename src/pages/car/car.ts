@@ -25,7 +25,6 @@ export class CarPage {
   this.dataService.current_car = "Model S 75D"; //wie oben, gleiche Funktionsweise bei folgenden Methoden
   let alert = this.alertCtrl.create({   //Erstellt den Auszugebebenen Warhinweis
     title: 'Ihr Auto wurde erfolgreich ausgewählt',
-    //subTitle: 'Benutzername oder Passwort falsch!',
     buttons: ['OK']
   });
   alert.present();  //Aufruf der Fehlermeldung

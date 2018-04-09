@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
+<<<<<<< HEAD
 import { AlertController, NavController, NavParams} from 'ionic-angular';
 import { Data } from '../../providers/data/data';
 
+=======
+import { NavController, AlertController, NavController, NavParams} from 'ionic-angular';
+>>>>>>> fe6b2350d2e191500cf3b418a1cca414b78815ae
 
 @Component({
   selector: 'page-einstellungen',
