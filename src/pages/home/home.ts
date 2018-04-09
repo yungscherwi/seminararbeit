@@ -3,8 +3,9 @@ import { NavController } from 'ionic-angular';
 import { Data } from '../../providers/data/data';
 import { Geolocation } from '@ionic-native/geolocation'; //Import für GPS
 import { AlertController } from 'ionic-angular'; //Import für Alert
-
-declare var google: any;//Keine Errors mit google als variable
+import { ModalController } from 'ionic-angular';
+import { NavigateMePage } from '../navigate-me/navigate-me';
+import {} from '@types/googlemaps';//Keine Errors mit google als variable
 
 @Component({
   selector: 'page-home',
@@ -18,8 +19,12 @@ export class HomePage {
   kmStand: number;
   image: any;
   items: any;
-  mondayItems: any;
-  importantItems: any;
+  public mondayItems = [];
+  public importantItems = [];
+  public weeklyItems = [];
+  imageCharging: any;
+  imageHome: any;
+  imageWorkplace: any;
   lat: any;
   lng: any;
   current_location: any;
@@ -27,7 +32,8 @@ export class HomePage {
   constructor(public navCtrl: NavController,
               public dataService: Data,
               public geo : Geolocation,
-              public alertCtrl: AlertController) {
+              public alertCtrl: AlertController,
+              public modalCtrl: ModalController) {
           //Damit beim Starten der Anwedungs geladen wird
                 //Für heutige Aktivitäten
                 this.dataService.getData().then((todos) => {
@@ -221,6 +227,17 @@ this.imageHome = 'assets/imgs/home.png'
         }).catch( err => console.log(err)); //Fehler in Konsolenausgabe auffangen
       }
 
+// Fahrt Starten
+navMe(){
 
+        let addModal = this.modalCtrl.create(NavigateMePage);
+
+    /*    addModal.onDidDismiss((weeklyItem) => {
+
+    });*/
+
+        addModal.present();
+
+        }
 
 }

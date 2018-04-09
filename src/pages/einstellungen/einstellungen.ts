@@ -1,12 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the EinstellungenPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { AlertController, NavController, NavParams} from 'ionic-angular';
 
 @Component({
   selector: 'page-einstellungen',
@@ -14,11 +7,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class EinstellungenPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+
+  battery: number = this.battery;
+  filter_active: boolean = this.filter_active; //Für die Prüfung ob Filter aktiviert werden sollen
+constructor(public navCtrl: NavController,
+            public navParams: NavParams) { }
+
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad EinstellungenPage');
-  }
+    }
 
 }

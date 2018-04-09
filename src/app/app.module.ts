@@ -18,10 +18,11 @@ import { AddImportantItemPage } from '../pages/add-important-item/add-important-
 import { ItemDetailPage } from '../pages/item-detail/item-detail';
 import { WeeklyItemDetailPage } from '../pages/weekly-item-detail/weekly-item-detail';
 import { ImportantItemDetailPage } from '../pages/important-item-detail/important-item-detail';
+import { NavigateMePage } from '../pages/navigate-me/navigate-me';
+
+import { LaunchNavigator } from '@ionic-native/launch-navigator'
 import { Geolocation } from '@ionic-native/geolocation'; //Import für Gps
 import { AuthService } from '../providers/auth-service/auth-service'; //Versuch Login
-
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
@@ -41,6 +42,7 @@ import { Data } from '../providers/data/data';
     ItemDetailPage,
     WeeklyItemDetailPage,
     ImportantItemDetailPage,
+    NavigateMePage,
     WelcomePage,
     SignupPage,
     LoginPage
@@ -63,6 +65,7 @@ import { Data } from '../providers/data/data';
     ItemDetailPage,
     WeeklyItemDetailPage,
     ImportantItemDetailPage,
+    NavigateMePage,
     WelcomePage,
     SignupPage,
     LoginPage
@@ -72,6 +75,7 @@ import { Data } from '../providers/data/data';
     SplashScreen,
     Geolocation,
     AuthService,
+    LaunchNavigator,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Data
   ]
